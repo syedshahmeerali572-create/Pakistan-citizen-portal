@@ -1,1 +1,1869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Pakistan Citizen Portal</title>
 
+  <link rel="stylesheet" href="style.css">
+
+  <!-- External Fonts & Scripts -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="script.js"></script>
+</head>
+<body class="bg-background font-body-md text-on-background">
+
+  <!-- GLOBAL SIDEBAR NAVIGATION -->
+  <aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col border-r border-outline-variant/30">
+    <div class="p-md flex flex-col gap-xs mb-sm">
+      <div class="flex items-center gap-sm">
+        <img alt="Pakistan Citizen Portal" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCjwNHk4tdaKyL-h0F-G9U2Mj-Df1Lfck9U3TxR3CMIGBD0rbPgc0yroNmsHGoikCdWkfiKa4-_AA5UuOTFTS8b4jt3WDsYpLJKXp_IJHOY3MVyE_pwacFzj0z5DSaTL1l4bgY3cce6bdiMZmPJgSpBprD7og2vYEMejHKkXjcw4bUQ5CLSod_n3_dFljbsvCtZPk05YvA7mZZGbmkrdPY75z_6xHUMzf5ZFofxoEOGMkhrhgfdxfp"/>
+      </div>
+      <div class="mt-xs px-base">
+        <p class="text-label-sm text-primary uppercase tracking-widest opacity-80">Government of Pakistan</p>
+      </div>
+    </div>
+    <nav class="flex-1 px-sm overflow-y-auto space-y-base pb-lg" id="app-nav">
+      <a class="nav-link flex items-center px-sm py-md rounded-xl transition-all font-label-md" data-path="dashboard" href="#dashboard">Dashboard</a>
+      <div class="py-xs px-sm text-label-sm text-outline-variant uppercase font-bold tracking-widest mt-md">Public Services</div>
+      <a class="nav-link flex items-center px-sm py-md rounded-xl transition-all font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-path="services" href="#services">Services (Passport/CNIC)</a>
+      <a class="nav-link flex items-center px-sm py-md rounded-xl transition-all font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-path="citizen-services" href="#citizen-services">Citizen Services</a>
+      <a class="nav-link flex items-center px-sm py-md rounded-xl transition-all font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-path="women-safety" href="#women-safety">Women Safety</a>
+      <a class="nav-link flex items-center px-sm py-md rounded-xl transition-all font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-path="jobs-skills" href="#jobs-skills">Jobs &amp; Skills</a>
+      <a class="nav-link flex items-center px-sm py-md rounded-xl transition-all font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-path="rights-civic" href="#rights-civic">Rights &amp; Civic</a>
+      <a class="nav-link flex items-center px-sm py-md rounded-xl transition-all font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-path="welfare-zakat" href="#welfare-zakat">Welfare &amp; Zakat</a>
+      <a class="nav-link flex items-center px-sm py-md rounded-xl transition-all font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface" data-path="news-alerts" href="#news-alerts">News &amp; Alerts</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTAINER -->
+  <div class="pl-72">
+    <!-- GLOBAL HEADER -->
+    <header class="fixed top-0 left-72 right-0 h-16 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-md flex items-center justify-between">
+      <div class="flex items-center gap-md">
+        <div class="flex items-center bg-surface-container-high px-sm py-xs rounded-full gap-xs border border-outline-variant/20">
+          <button class="text-label-sm font-bold px-sm py-base rounded-full bg-primary text-on-primary">EN</button>
+          <button class="text-label-sm font-bold px-sm py-base rounded-full text-on-surface-variant hover:bg-surface-container-highest transition-colors">اردو</button>
+        </div>
+      </div>
+      <div class="flex items-center gap-md">
+        <div class="relative p-base hover:bg-surface-container rounded-full transition-colors cursor-pointer" onclick="navigateTo('news-alerts')">
+          <span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+          <span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+        </div>
+        <div class="h-8 w-px bg-outline-variant/30 mx-base"></div>
+        <div class="flex items-center gap-sm pl-xs cursor-pointer hover:bg-surface-container rounded-full p-base transition-colors">
+          <div class="text-right hidden sm:block">
+            <p class="text-label-sm font-bold text-on-surface leading-none">Asim Ahmed</p>
+            <p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Verified Citizen</p>
+          </div>
+          <img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-fixed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDekYe0DKh-tESkizE48MTk3-V22FG726K6qWiRdE_gzPvViY9F89S5fXSb5mdgrLETpK5lI-o1ojEunALkcmocF5g1hC8p3K1Zu1ULk8bEgRiezA0JUlDljV7diyayRVaP6c1izct5u7vwPONuj_oU6_zzH8tPflDZ0vTRIsdBse3oiSFa4s5wU_rR24fVHt2CTKw8hk9yX1xuFG9FsTC1uNObqplyNoVW8gD4SNqnVIS3ToZe0a_v"/>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN DYNAMIC CONTENT -->
+    <main class="pt-16 min-h-screen bg-surface">
+
+      <!-- PAGE 1: DASHBOARD -->
+      <section id="dashboard" class="page-view">
+        <div class="flex flex-col w-full h-full p-6 lg:p-10 gap-8">
+          <div class="flex flex-col gap-8 w-full max-w-[1280px] mx-auto">
+            <!-- Search Hero -->
+            <div class="relative w-full rounded-3xl overflow-hidden bg-primary shadow-lg flex flex-col justify-center items-center text-center p-8 lg:p-16 min-h-[300px]">
+              <div class="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none mix-blend-overlay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAo73q1VANSYhR0Zz3eKmxv_EH6zgdjmrPfqXkfmCKEruq5O73dYNLAMv37tbVPdiDoSDOK4_c0dyv85KzV_0qQH_Lkr8Gut5j-8_1pjhrx7N6pQIia5y5pvVYaYIXfsJD6k8XqQ9QN6s0VlHmVtaL3-Wn0KQVu89hvnaGaBEpU0jnfDUbTHdL3aNvAlXCC3f71w5mb8lTbMAAlF21YxiUaLDZ371j3UDCHqPIZj8wLsrz7hVlTiM_U')"></div>
+              <div class="relative z-10 flex flex-col items-center gap-6 w-full max-w-3xl">
+                <h1 class="text-on-primary font-display-lg text-display-lg leading-tight drop-shadow-md">How can we help you today, Asim?</h1>
+                <p class="text-on-primary/90 font-body-lg text-body-lg max-w-xl mb-2 drop-shadow-sm">Access public services, track your complaints, or explore government initiatives instantly.</p>
+                <div class="relative w-full max-w-2xl group">
+                  <span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-surface-dim transition-colors group-focus-within:text-primary z-20">search</span>
+                  <input id="dashboard-search-input" class="w-full bg-surface text-on-surface font-body-md text-body-md rounded-full py-4 pl-14 pr-6 focus:outline-none focus:ring-4 focus:ring-primary-fixed/50 shadow-md transition-shadow" placeholder="Search for 'Renew Passport' or 'Women Safety App'..." type="text"/>
+                  <button onclick="handleDashboardSearch()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-on-primary font-label-md text-label-md rounded-full px-6 py-2 shadow-sm hover:bg-surface-tint transition-colors">Search</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <!-- Main Content Column -->
+              <div class="lg:col-span-8 flex flex-col gap-10">
+                <!-- Quick Links / Services Grid -->
+                <section class="flex flex-col gap-6">
+                  <div class="flex items-center justify-between">
+                    <h2 class="text-on-surface font-headline-md text-headline-md flex items-center gap-2">
+                      <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">widgets</span>
+                      Essential Services
+                    </h2>
+                    <a class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1 group" href="#services" onclick="navigateTo('services')">
+                      View All <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                  </div>
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <a class="bg-surface-container rounded-2xl p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-1 hover:shadow-md transition-all group" href="#services" onclick="navigateTo('services')">
+                      <div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <span class="material-symbols-outlined text-on-primary-fixed text-3xl" style="font-variation-settings: 'FILL' 1;">badge</span>
+                      </div>
+                      <span class="text-on-surface font-label-md text-label-md">Passport / CNIC</span>
+                    </a>
+                    <a class="bg-surface-container rounded-2xl p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-1 hover:shadow-md transition-all group" href="#citizen-services" onclick="navigateTo('citizen-services')">
+                      <div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <span class="material-symbols-outlined text-on-secondary-container text-3xl" style="font-variation-settings: 'FILL' 1;">hub</span>
+                      </div>
+                      <span class="text-on-surface font-label-md text-label-md">Citizen Services</span>
+                    </a>
+                    <a class="bg-surface-container rounded-2xl p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-1 hover:shadow-md transition-all group" href="#women-safety" onclick="navigateTo('women-safety')">
+                      <div class="w-14 h-14 rounded-full bg-error-container flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <span class="material-symbols-outlined text-on-error-container text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+                      </div>
+                      <span class="text-on-surface font-label-md text-label-md">Women Safety</span>
+                    </a>
+                    <a class="bg-surface-container rounded-2xl p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-1 hover:shadow-md transition-all group" href="#jobs-skills" onclick="navigateTo('jobs-skills')">
+                      <div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <span class="material-symbols-outlined text-on-secondary-container text-3xl" style="font-variation-settings: 'FILL' 1;">work</span>
+                      </div>
+                      <span class="text-on-surface font-label-md text-label-md">Jobs &amp; Skills</span>
+                    </a>
+                    <a class="bg-surface-container rounded-2xl p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-1 hover:shadow-md transition-all group" href="#jobs-skills" onclick="navigateTo('jobs-skills')">
+                      <div class="w-14 h-14 rounded-full bg-tertiary-fixed flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <span class="material-symbols-outlined text-on-tertiary-fixed text-3xl" style="font-variation-settings: 'FILL' 1;">school</span>
+                      </div>
+                      <span class="text-on-surface font-label-md text-label-md">Scholarships</span>
+                    </a>
+                    <a class="bg-surface-container rounded-2xl p-6 flex flex-col items-center text-center gap-4 hover:-translate-y-1 hover:shadow-md transition-all group" href="#welfare-zakat" onclick="navigateTo('welfare-zakat')">
+                      <div class="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                        <span class="material-symbols-outlined text-on-surface-variant text-3xl" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                      </div>
+                      <span class="text-on-surface font-label-md text-label-md">Welfare &amp; Zakat</span>
+                    </a>
+                  </div>
+                </section>
+
+                <!-- Activity / Complaints -->
+                <section class="bg-surface-container-low rounded-3xl p-8 shadow-sm flex flex-col gap-6 relative overflow-hidden">
+                  <div class="absolute -right-16 -top-16 w-64 h-64 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none"></div>
+                  <div class="flex items-center justify-between relative z-10">
+                    <div>
+                      <h2 class="text-on-surface font-headline-md text-headline-md flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">insert_chart</span>
+                        Your Activity
+                      </h2>
+                      <p class="text-on-surface-variant font-body-md text-body-md mt-1">Track the status of your lodged complaints and requests.</p>
+                    </div>
+                    <button onclick="createNewComplaint()" class="bg-primary text-on-primary font-label-md text-label-md px-5 py-2.5 rounded-full shadow-sm hover:bg-surface-tint transition-colors flex items-center gap-2">
+                      <span class="material-symbols-outlined text-[20px]">add</span>
+                      New Complaint
+                    </button>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                    <div class="bg-surface rounded-2xl p-6 shadow-sm border border-outline-variant/10 flex flex-col gap-2">
+                      <div class="flex justify-between items-center w-full">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Total Filed</span>
+                        <span class="material-symbols-outlined text-outline-variant">assignment</span>
+                      </div>
+                      <div class="flex items-baseline gap-2 mt-2">
+                        <span id="total-complaints-count" class="text-on-surface font-display-lg text-display-lg leading-none">12</span>
+                      </div>
+                    </div>
+                    <div class="bg-surface rounded-2xl p-6 shadow-sm border border-outline-variant/10 flex flex-col gap-2 relative overflow-hidden">
+                      <div class="absolute bottom-0 left-0 w-full h-1 bg-primary"></div>
+                      <div class="flex justify-between items-center w-full">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">Resolved</span>
+                        <span class="material-symbols-outlined text-primary">check_circle</span>
+                      </div>
+                      <div class="flex items-baseline gap-2 mt-2">
+                        <span class="text-on-surface font-display-lg text-display-lg leading-none">9</span>
+                        <span class="text-primary font-label-sm text-label-sm bg-primary-fixed/20 px-2 py-0.5 rounded-full">+2 this month</span>
+                      </div>
+                    </div>
+                    <div class="bg-surface rounded-2xl p-6 shadow-sm border border-outline-variant/10 flex flex-col gap-2">
+                      <div class="flex justify-between items-center w-full">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">In Progress</span>
+                        <span class="material-symbols-outlined text-secondary">hourglass_empty</span>
+                      </div>
+                      <div class="flex items-baseline gap-2 mt-2">
+                        <span id="in-progress-count" class="text-on-surface font-display-lg text-display-lg leading-none">3</span>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Sidebar Alerts -->
+              <aside class="lg:col-span-4 flex flex-col gap-6">
+                <div class="bg-surface-container rounded-3xl p-6 shadow-sm flex flex-col gap-6">
+                  <div class="flex items-center justify-between pb-4 border-b border-outline-variant/20">
+                    <h3 class="text-on-surface font-headline-md text-headline-md flex items-center gap-2">
+                      <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">campaign</span>
+                      News &amp; Alerts
+                    </h3>
+                  </div>
+                  <div class="flex flex-col gap-5">
+                    <div class="flex gap-4 group cursor-pointer" onclick="navigateTo('news-alerts')">
+                      <div class="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-error group-hover:scale-150 transition-transform"></div>
+                      <div class="flex flex-col gap-1">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm opacity-80">Today, 09:00 AM</span>
+                        <h4 class="text-on-surface font-label-md text-label-md group-hover:text-primary transition-colors">Polio Vaccination Drive Commences</h4>
+                        <p class="text-on-surface-variant font-body-md text-body-md text-sm line-clamp-2">The nationwide polio vaccination drive starts today. Ensure all children under 5 are vaccinated.</p>
+                      </div>
+                    </div>
+                    <div class="flex gap-4 group cursor-pointer" onclick="navigateTo('news-alerts')">
+                      <div class="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-primary group-hover:scale-150 transition-transform"></div>
+                      <div class="flex flex-col gap-1">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm opacity-80">Yesterday</span>
+                        <h4 class="text-on-surface font-label-md text-label-md group-hover:text-primary transition-colors">E-Challan Payment Deadline Extended</h4>
+                        <p class="text-on-surface-variant font-body-md text-body-md text-sm line-clamp-2">Citizens can now pay their pending traffic fines without penalty until the 15th of this month.</p>
+                      </div>
+                    </div>
+                    <div class="flex gap-4 group cursor-pointer" onclick="navigateTo('news-alerts')">
+                      <div class="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-secondary group-hover:scale-150 transition-transform"></div>
+                      <div class="flex flex-col gap-1">
+                        <span class="text-on-surface-variant font-label-sm text-label-sm opacity-80">Oct 12, 2023</span>
+                        <h4 class="text-on-surface font-label-md text-label-md group-hover:text-primary transition-colors">New Scholarship Portal Launched</h4>
+                        <p class="text-on-surface-variant font-body-md text-body-md text-sm line-clamp-2">Higher Education Commission introduces a unified portal for all federal scholarships.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button onclick="navigateTo('news-alerts')" class="w-full mt-2 py-3 rounded-xl bg-surface text-primary font-label-md text-label-md hover:bg-surface-container-high transition-colors text-center border border-outline-variant/20">
+                    View All Updates
+                  </button>
+                </div>
+                <!-- Map / Location Card -->
+                <div class="rounded-3xl overflow-hidden shadow-sm h-48 relative group cursor-pointer" onclick="navigateTo('services')">
+                  <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVvCIBrPoh6oDfMf7Jgx6Ld4EfyBJD0wSZZxpLbpcUez4hQGhUNBw9xjNKXSWHhc-Mb9IzxJ-acjwVFMe847ej4DptQW-tbcht3EMfZTrkxnxtSQx3CUQA0RPfiuBVJ0g2PihgT04q-UUwncnxzPy2p3NSxsMV2wAl2Id0IQsPmEboBvnzD-yAXUQt8BgpgfI7RFAPqiT7pWh4sknD_gu2smgevmI09jg27oyUojHSW9RbrPvp2oeo')"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 to-transparent"></div>
+                  <div class="absolute bottom-4 left-4 right-4 text-on-primary">
+                    <h4 class="font-label-md text-label-md">Explore Islamabad</h4>
+                    <p class="font-body-md text-body-md text-sm opacity-90">Discover civic amenities near you.</p>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 2: SERVICES (PASSPORT / CNIC) -->
+      <section id="services" class="page-view">
+        <div class="flex flex-col w-full">
+          <!-- Hero Section -->
+          <section class="relative w-full overflow-hidden bg-surface-container -mt-16 pt-24 pb-lg px-sm md:px-xl">
+            <div class="absolute inset-0 z-0">
+              <div class="w-full h-full bg-cover bg-center opacity-40 mix-blend-multiply" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBIO89ow2A9TxmvwXRqsebBWHe6so9n-v3gnmQGeSUPHiSIvGYzPDaeQSPjVUAVFpcBUeJbYiGinPHKsZumVlfWltRnMkIIP23X3LVblwub3fImlggsevydXFhZQYSjWeakbUgvnBtto1Ut9-8IdPpoO8uVWFaPeP8tT1BzlRFSVWetDS11TCc29QQmv4YMwVuJYwBJjC7RcdbZe81Pz4QV-AfUkwQocF3DJaDNUsvQz-S3OA_0hbrw')"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-surface-container via-surface-container/90 to-transparent"></div>
+            </div>
+            <div class="relative z-10 max-w-max-width mx-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+              <div class="lg:col-span-7 flex flex-col gap-sm">
+                <div class="flex items-center gap-xs">
+                  <span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+                  <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Public Services</span>
+                </div>
+                <h1 class="font-display-lg text-display-lg text-on-surface">Identity &amp; Travel Documents</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                  Streamlined access to essential documentation. Apply, renew, or track your Computerized National Identity Card (CNIC) and Pakistani Passport through secure digital channels.
+                </p>
+              </div>
+              <div class="lg:col-span-5 flex justify-end">
+                <div class="bg-surface/80 backdrop-blur-md p-md rounded-xl shadow-lg border border-outline-variant/20 flex flex-col gap-sm w-full max-w-sm">
+                  <h3 class="font-label-md text-label-md text-on-surface uppercase tracking-wider mb-xs">Quick Action Track</h3>
+                  <div class="relative flex items-center bg-surface-container-low rounded-lg p-xs focus-within:ring-2 focus-within:ring-primary focus-within:shadow-[0_0_8px_rgba(0,75,36,0.3)] transition-all">
+                    <span class="material-symbols-outlined text-outline-variant ml-xs mr-sm">search</span>
+                    <input id="cnic-tracking-input" class="bg-transparent border-none outline-none w-full font-body-md text-body-md text-on-surface placeholder:text-outline-variant py-xs" placeholder="Enter Tracking ID (e.g., 1234-5678)" type="text"/>
+                  </div>
+                  <button onclick="trackApplication()" class="bg-primary text-on-primary font-label-md text-label-md py-sm px-md rounded-lg hover:bg-primary-container transition-colors w-full flex items-center justify-center gap-xs mt-xs shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30">
+                    Track Status
+                    <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                  </button>
+                  <p id="tracking-result-msg" class="text-label-sm text-primary hidden text-center font-bold mt-1"></p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Service Cards Section -->
+          <section class="max-w-max-width mx-margin-desktop w-full px-sm md:px-xl py-lg -mt-10 relative z-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+              <!-- CNIC Card -->
+              <div class="bg-surface rounded-2xl shadow-xl shadow-surface-container-high/50 p-lg flex flex-col gap-md hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-primary/10 transition-colors"></div>
+                <div class="flex items-start justify-between relative z-10">
+                  <div class="flex items-center gap-sm">
+                    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+                      <span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">badge</span>
+                    </div>
+                    <div>
+                      <h2 class="font-headline-md text-headline-md text-on-surface">CNIC Services</h2>
+                      <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">NADRA</p>
+                    </div>
+                  </div>
+                  <span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full">4 Actions</span>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant relative z-10">
+                  Manage your Computerized National Identity Card. Essential for voting, banking, and accessing government services.
+                </p>
+                <ul class="flex flex-col gap-xs mt-sm relative z-10">
+                  <li>
+                    <a class="flex items-center justify-between p-sm bg-surface-container-low hover:bg-surface-container rounded-xl transition-colors group/item" href="javascript:void(0)" onclick="openNewCnicApplication(); return false;">
+                      <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-secondary text-[20px]">person_add</span>
+                        <span class="font-label-md text-label-md text-on-surface">Apply for New CNIC</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant group-hover/item:text-primary transition-colors">chevron_right</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="flex items-center justify-between p-sm bg-surface-container-low hover:bg-surface-container rounded-xl transition-colors group/item" href="#" onclick="triggerAction('Renew Expired CNIC')">
+                      <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-secondary text-[20px]">autorenew</span>
+                        <span class="font-label-md text-label-md text-on-surface">Renew Expired CNIC</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant group-hover/item:text-primary transition-colors">chevron_right</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="flex items-center justify-between p-sm bg-surface-container-low hover:bg-surface-container rounded-xl transition-colors group/item" href="#" onclick="triggerAction('Modify CNIC Details')">
+                      <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-secondary text-[20px]">edit_document</span>
+                        <span class="font-label-md text-label-md text-on-surface">Modify Existing Details</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant group-hover/item:text-primary transition-colors">chevron_right</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="flex items-center justify-between p-sm bg-error-container/30 hover:bg-error-container/50 rounded-xl transition-colors group/item" href="#" onclick="triggerAction('Report Lost CNIC')">
+                      <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-error text-[20px]">report</span>
+                        <span class="font-label-md text-label-md text-on-surface">Report Lost or Stolen</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant group-hover/item:text-error transition-colors">chevron_right</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Passport Card -->
+              <div class="bg-surface rounded-2xl shadow-xl shadow-surface-container-high/50 p-lg flex flex-col gap-md hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-secondary-container/30 rounded-full blur-3xl -mr-10 -mt-10 group-hover:bg-secondary-container/50 transition-colors"></div>
+                <div class="flex items-start justify-between relative z-10">
+                  <div class="flex items-center gap-sm">
+                    <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+                      <span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span>
+                    </div>
+                    <div>
+                      <h2 class="font-headline-md text-headline-md text-on-surface">Passport Services</h2>
+                      <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">DGIP</p>
+                    </div>
+                  </div>
+                  <span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full">3 Actions</span>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant relative z-10">
+                  Apply for or renew your Machine Readable Passport (MRP) or e-Passport for international travel.
+                </p>
+                <ul class="flex flex-col gap-xs mt-sm relative z-10">
+                  <li>
+                    <a class="flex items-center justify-between p-sm bg-surface-container-low hover:bg-surface-container rounded-xl transition-colors group/item" href="#" onclick="triggerAction('Apply New Passport')">
+                      <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-secondary text-[20px]">add_circle</span>
+                        <span class="font-label-md text-label-md text-on-surface">Apply for New Passport</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant group-hover/item:text-primary transition-colors">chevron_right</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="flex items-center justify-between p-sm bg-surface-container-low hover:bg-surface-container rounded-xl transition-colors group/item" href="#" onclick="triggerAction('Renew Expired Passport')">
+                      <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-secondary text-[20px]">update</span>
+                        <span class="font-label-md text-label-md text-on-surface">Renew Expired Passport</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant group-hover/item:text-primary transition-colors">chevron_right</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="flex items-center justify-between p-sm bg-error-container/30 hover:bg-error-container/50 rounded-xl transition-colors group/item" href="#" onclick="triggerAction('Report Lost Passport')">
+                      <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-error text-[20px]">report_problem</span>
+                        <span class="font-label-md text-label-md text-on-surface">Report Lost Passport</span>
+                      </div>
+                      <span class="material-symbols-outlined text-outline-variant group-hover/item:text-error transition-colors">chevron_right</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Document Checklist Wizard & Map Section -->
+          <section class="max-w-max-width mx-margin-desktop w-full px-sm md:px-xl py-lg flex flex-col lg:flex-row gap-lg">
+            <!-- Wizard -->
+            <div class="w-full lg:w-7/12 flex flex-col gap-md">
+              <div class="flex items-center gap-sm mb-xs">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Document Checklist</h2>
+                <div class="h-px bg-outline-variant flex-1 ml-sm"></div>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface-variant">Find out exactly what you need before visiting a center to save time.</p>
+              <div class="bg-surface rounded-2xl p-md md:p-lg shadow-md mt-sm border border-outline-variant/10">
+                <div class="flex gap-sm mb-md overflow-x-auto pb-2 scrollbar-hide" id="wizard-tabs">
+                  <button class="wizard-tab-btn px-md py-sm rounded-full font-label-md text-label-md whitespace-nowrap bg-primary text-on-primary shadow-sm shadow-primary/20 transition-all" data-target="wizard-cnic">CNIC Renewal</button>
+                  <button class="wizard-tab-btn px-md py-sm rounded-full font-label-md text-label-md whitespace-nowrap bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-all" data-target="wizard-passport">New Passport</button>
+                  <button class="wizard-tab-btn px-md py-sm rounded-full font-label-md text-label-md whitespace-nowrap bg-surface-container hover:bg-surface-container-high text-on-surface-variant transition-all" data-target="wizard-child">Child Registration</button>
+                </div>
+
+                <!-- Tab 1 Content -->
+                <div class="wizard-content flex flex-col gap-md animate-fade-in" id="wizard-cnic">
+                  <div class="flex items-start gap-sm p-sm bg-primary-fixed/20 rounded-lg">
+                    <span class="material-symbols-outlined text-primary mt-1">info</span>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">For standard renewal without any modifications to your data.</p>
+                  </div>
+                  <ul class="flex flex-col gap-sm">
+                    <li class="flex items-start gap-sm">
+                      <div class="mt-1 w-5 h-5 rounded border-2 border-outline-variant flex items-center justify-center cursor-pointer hover:border-primary transition-colors toggle-check">
+                        <span class="material-symbols-outlined text-[16px] text-primary hidden">check</span>
+                      </div>
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">Original Expired CNIC</p>
+                        <p class="font-body-sm text-body-sm text-outline">Must be presented physically.</p>
+                      </div>
+                    </li>
+                    <li class="flex items-start gap-sm">
+                      <div class="mt-1 w-5 h-5 rounded border-2 border-outline-variant flex items-center justify-center cursor-pointer hover:border-primary transition-colors toggle-check">
+                        <span class="material-symbols-outlined text-[16px] text-primary hidden">check</span>
+                      </div>
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">Presence of Applicant</p>
+                        <p class="font-body-sm text-body-sm text-outline">For live photo and biometric verification.</p>
+                      </div>
+                    </li>
+                  </ul>
+                  <button onclick="downloadChecklist('CNIC Renewal')" class="mt-sm self-start font-label-md text-label-md text-primary flex items-center gap-xs hover:underline">
+                    Download PDF Checklist <span class="material-symbols-outlined text-[18px]">download</span>
+                  </button>
+                </div>
+
+                <!-- Tab 2 Content -->
+                <div class="wizard-content flex flex-col gap-md animate-fade-in hidden" id="wizard-passport">
+                  <div class="flex items-start gap-sm p-sm bg-primary-fixed/20 rounded-lg">
+                    <span class="material-symbols-outlined text-primary mt-1">info</span>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Mandatory documents required for first-time MRP or e-Passport application.</p>
+                  </div>
+                  <ul class="flex flex-col gap-sm">
+                    <li class="flex items-start gap-sm">
+                      <div class="mt-1 w-5 h-5 rounded border-2 border-outline-variant flex items-center justify-center cursor-pointer hover:border-primary transition-colors toggle-check">
+                        <span class="material-symbols-outlined text-[16px] text-primary hidden">check</span>
+                      </div>
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">Original Valid CNIC / NICOP</p>
+                        <p class="font-body-sm text-body-sm text-outline">Along with 2 photocopies.</p>
+                      </div>
+                    </li>
+                    <li class="flex items-start gap-sm">
+                      <div class="mt-1 w-5 h-5 rounded border-2 border-outline-variant flex items-center justify-center cursor-pointer hover:border-primary transition-colors toggle-check">
+                        <span class="material-symbols-outlined text-[16px] text-primary hidden">check</span>
+                      </div>
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">National Bank Fee Challan Receipt</p>
+                        <p class="font-body-sm text-body-sm text-outline">Paid at designated branch or e-Pay app.</p>
+                      </div>
+                    </li>
+                  </ul>
+                  <button onclick="downloadChecklist('New Passport')" class="mt-sm self-start font-label-md text-label-md text-primary flex items-center gap-xs hover:underline">
+                    Download PDF Checklist <span class="material-symbols-outlined text-[18px]">download</span>
+                  </button>
+                </div>
+
+                <!-- Tab 3 Content -->
+                <div class="wizard-content flex flex-col gap-md animate-fade-in hidden" id="wizard-child">
+                  <div class="flex items-start gap-sm p-sm bg-primary-fixed/20 rounded-lg">
+                    <span class="material-symbols-outlined text-primary mt-1">info</span>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">For B-Form or Juvenile Card processing for minors under 18.</p>
+                  </div>
+                  <ul class="flex flex-col gap-sm">
+                    <li class="flex items-start gap-sm">
+                      <div class="mt-1 w-5 h-5 rounded border-2 border-outline-variant flex items-center justify-center cursor-pointer hover:border-primary transition-colors toggle-check">
+                        <span class="material-symbols-outlined text-[16px] text-primary hidden">check</span>
+                      </div>
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">Child Birth Certificate</p>
+                        <p class="font-body-sm text-body-sm text-outline">Issued by Union Council.</p>
+                      </div>
+                    </li>
+                    <li class="flex items-start gap-sm">
+                      <div class="mt-1 w-5 h-5 rounded border-2 border-outline-variant flex items-center justify-center cursor-pointer hover:border-primary transition-colors toggle-check">
+                        <span class="material-symbols-outlined text-[16px] text-primary hidden">check</span>
+                      </div>
+                      <div>
+                        <p class="font-label-md text-label-md text-on-surface">Parents' CNIC Copies</p>
+                        <p class="font-body-sm text-body-sm text-outline">At least one parent must be present.</p>
+                      </div>
+                    </li>
+                  </ul>
+                  <button onclick="downloadChecklist('Child Registration')" class="mt-sm self-start font-label-md text-label-md text-primary flex items-center gap-xs hover:underline">
+                    Download PDF Checklist <span class="material-symbols-outlined text-[18px]">download</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Map Module -->
+            <div class="w-full lg:w-5/12 flex flex-col gap-md">
+              <div class="flex items-center gap-sm mb-xs">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Find a Center</h2>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface-variant">Locate your nearest NADRA Mega Center or Passport Office.</p>
+              <div class="mt-sm relative rounded-2xl overflow-hidden shadow-md group h-80">
+                <div class="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCzS4Co249ey8rDFUPyhScT1CfzTx9Q43yiqZhbRa_nAvrJG-gAYLJlETARJiCLDQcQ4odEBQKLpDurWz1IXWXziOW2JDF7Ip90gWzShQeH5Uu7Q9Smg3BGF0Qloz9Y7rdQhZQU1qZqpur4FIWR5btJ0HcN-g3-BHQ_tHDwEI8_F7dpJYOK3rks5UVkOKKwcthcfEq3TJFtoR6MO6Arx9Thtbhqs4gFqWoYysm93_H65wt42pasbaqo')"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/60 to-transparent pt-xl">
+                  <div class="flex justify-between items-end">
+                    <div>
+                      <p class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider mb-1">Nearest Center</p>
+                      <p class="font-headline-md text-headline-md text-inverse-on-surface">Blue Area Mega Center</p>
+                      <p class="font-body-sm text-body-sm text-secondary-fixed-dim">Open until 10:00 PM today</p>
+                    </div>
+                    <button onclick="getDirections('Blue Area Mega Center')" class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                      <span class="material-symbols-outlined">directions</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- PAGE 2b: NEW CNIC APPLICATION (sub-flow of Services) -->
+      <section id="cnic-application" class="page-view">
+        <div class="flex flex-col w-full relative min-h-screen">
+          <div class="max-w-[1280px] w-full mx-auto px-lg py-xl flex flex-col lg:flex-row gap-lg">
+            <!-- Main Form Area -->
+            <div class="flex-1 flex flex-col gap-lg">
+              <!-- Header & Stepper -->
+              <div class="flex flex-col gap-md">
+                <div class="flex items-center gap-sm">
+                  <button onclick="navigateTo('services')" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors shadow-sm">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                  </button>
+                  <div>
+                    <p class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Identity Services</p>
+                    <h1 class="font-display-lg text-display-lg text-on-surface">New CNIC Application</h1>
+                  </div>
+                </div>
+                <!-- Progress Stepper -->
+                <div class="relative w-full max-w-2xl mt-sm">
+                  <div class="absolute top-1/2 left-0 w-full h-1 bg-surface-container -translate-y-1/2 rounded-full overflow-hidden shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)]">
+                    <div class="w-1/4 h-full bg-primary rounded-full"></div>
+                  </div>
+                  <div class="relative flex justify-between w-full z-10">
+                    <div class="flex flex-col items-center gap-xs">
+                      <div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md shadow-primary/20 ring-4 ring-surface">
+                        <span class="font-label-sm text-label-sm">1</span>
+                      </div>
+                      <span class="font-label-sm text-label-sm text-primary font-bold">Personal</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-xs">
+                      <div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center ring-4 ring-surface">
+                        <span class="font-label-sm text-label-sm">2</span>
+                      </div>
+                      <span class="font-label-sm text-label-sm text-on-surface-variant">Family</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-xs">
+                      <div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center ring-4 ring-surface">
+                        <span class="font-label-sm text-label-sm">3</span>
+                      </div>
+                      <span class="font-label-sm text-label-sm text-on-surface-variant">Documents</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-xs">
+                      <div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center ring-4 ring-surface">
+                        <span class="font-label-sm text-label-sm">4</span>
+                      </div>
+                      <span class="font-label-sm text-label-sm text-on-surface-variant">Review</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form Content -->
+              <div class="bg-surface-container-lowest rounded-2xl shadow-md p-lg flex flex-col gap-lg">
+                <div class="flex items-center justify-between flex-wrap gap-sm">
+                  <h2 class="font-headline-md text-headline-md text-on-surface">Step 1: Personal Information</h2>
+                  <!-- NADRA Database Check Status -->
+                  <div class="flex items-center gap-sm bg-surface-container-low py-xs px-sm rounded-full">
+                    <div class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                    </div>
+                    <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">NADRA Sync Active</span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                  <!-- Full Name -->
+                  <div class="flex flex-col gap-xs md:col-span-2">
+                    <label class="font-label-md text-label-md text-on-surface-variant" for="cnic-fullName">Full Name (as per birth certificate)</label>
+                    <div class="relative group">
+                      <input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md p-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-low transition-all shadow-[0_0_0_1px_var(--tw-colors-outline-variant)] focus:shadow-[0_0_0_2px_var(--tw-colors-primary)_inset] group-hover:shadow-[0_0_0_1px_var(--tw-colors-outline)]" id="cnic-fullName" placeholder="Enter full name" type="text"/>
+                    </div>
+                  </div>
+                  <!-- Date of Birth -->
+                  <div class="flex flex-col gap-xs">
+                    <label class="font-label-md text-label-md text-on-surface-variant" for="cnic-dob">Date of Birth</label>
+                    <div class="relative group">
+                      <input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md p-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-low transition-all shadow-[0_0_0_1px_var(--tw-colors-outline-variant)] focus:shadow-[0_0_0_2px_var(--tw-colors-primary)_inset] group-hover:shadow-[0_0_0_1px_var(--tw-colors-outline)]" id="cnic-dob" type="date"/>
+                      <span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">calendar_today</span>
+                    </div>
+                  </div>
+                  <!-- Gender -->
+                  <div class="flex flex-col gap-xs">
+                    <label class="font-label-md text-label-md text-on-surface-variant">Gender</label>
+                    <div class="flex gap-sm h-full">
+                      <label class="flex-1 relative cursor-pointer group">
+                        <input class="peer sr-only cnic-gender-input" name="cnic-gender" type="radio" value="male"/>
+                        <div class="w-full h-full flex items-center justify-center font-body-md text-body-md p-sm rounded-xl shadow-[0_0_0_1px_var(--tw-colors-outline-variant)] text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:shadow-[0_0_0_2px_var(--tw-colors-primary)_inset] transition-all group-hover:bg-surface-container-low">Male</div>
+                      </label>
+                      <label class="flex-1 relative cursor-pointer group">
+                        <input class="peer sr-only cnic-gender-input" name="cnic-gender" type="radio" value="female"/>
+                        <div class="w-full h-full flex items-center justify-center font-body-md text-body-md p-sm rounded-xl shadow-[0_0_0_1px_var(--tw-colors-outline-variant)] text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:shadow-[0_0_0_2px_var(--tw-colors-primary)_inset] transition-all group-hover:bg-surface-container-low">Female</div>
+                      </label>
+                      <label class="flex-1 relative cursor-pointer group">
+                        <input class="peer sr-only cnic-gender-input" name="cnic-gender" type="radio" value="other"/>
+                        <div class="w-full h-full flex items-center justify-center font-body-md text-body-md p-sm rounded-xl shadow-[0_0_0_1px_var(--tw-colors-outline-variant)] text-on-surface-variant peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:shadow-[0_0_0_2px_var(--tw-colors-primary)_inset] transition-all group-hover:bg-surface-container-low">Other</div>
+                      </label>
+                    </div>
+                  </div>
+                  <!-- Present Address -->
+                  <div class="flex flex-col gap-xs md:col-span-2">
+                    <label class="font-label-md text-label-md text-on-surface-variant" for="cnic-address">Present Address</label>
+                    <div class="relative group">
+                      <textarea class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md p-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface-container-low transition-all shadow-[0_0_0_1px_var(--tw-colors-outline-variant)] focus:shadow-[0_0_0_2px_var(--tw-colors-primary)_inset] group-hover:shadow-[0_0_0_1px_var(--tw-colors-outline)] resize-none" id="cnic-address" placeholder="Enter complete present address" rows="3"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <!-- Inline validation / status message -->
+                <p id="cnic-form-msg" class="font-label-sm text-label-sm hidden"></p>
+                <!-- Action Buttons -->
+                <div class="flex items-center justify-between pt-md mt-md shadow-[0_-1px_0_var(--tw-colors-surface-container-high)]">
+                  <button onclick="saveCnicDraft()" class="px-lg py-sm rounded-xl font-label-md text-label-md text-primary bg-transparent hover:bg-surface-container-low shadow-[0_0_0_1px_var(--tw-colors-primary)] transition-all flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-[18px]">save</span>
+                    Save Draft
+                  </button>
+                  <button onclick="submitCnicStep1()" class="px-lg py-sm rounded-xl font-label-md text-label-md text-on-primary bg-primary hover:bg-[#004D26] shadow-md shadow-primary/20 transition-all flex items-center gap-xs group">
+                    Next Step
+                    <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side Panel -->
+            <div class="w-full lg:w-80 flex flex-col gap-md">
+              <!-- Requirement Checklist Card -->
+              <div class="bg-surface-container-highest rounded-2xl p-md shadow-sm flex flex-col gap-sm relative overflow-hidden group hover:shadow-md transition-shadow">
+                <div class="absolute -right-8 -top-8 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+                <div class="flex items-center gap-sm mb-xs">
+                  <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">assignment_turned_in</span>
+                  <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Required Documents</h3>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mb-xs">Ensure you have clear, scanned copies of the following before proceeding:</p>
+                <div class="flex flex-col gap-xs">
+                  <div class="flex items-start gap-sm p-sm bg-surface-container-lowest rounded-xl shadow-sm">
+                    <div class="mt-1 w-5 h-5 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+                      <span class="material-symbols-outlined text-[12px] text-on-surface-variant">description</span>
+                    </div>
+                    <div>
+                      <p class="font-label-md text-label-md text-on-surface">Birth Certificate</p>
+                      <p class="font-body-sm text-[11px] text-on-surface-variant">Union Council issued</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-sm p-sm bg-surface-container-lowest rounded-xl shadow-sm">
+                    <div class="mt-1 w-5 h-5 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+                      <span class="material-symbols-outlined text-[12px] text-on-surface-variant">badge</span>
+                    </div>
+                    <div>
+                      <p class="font-label-md text-label-md text-on-surface">Parents' CNIC</p>
+                      <p class="font-body-sm text-[11px] text-on-surface-variant">Front & Back copies</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-sm p-sm bg-surface-container-lowest rounded-xl shadow-sm">
+                    <div class="mt-1 w-5 h-5 rounded-full bg-surface-container flex items-center justify-center shrink-0">
+                      <span class="material-symbols-outlined text-[12px] text-on-surface-variant">home</span>
+                    </div>
+                    <div>
+                      <p class="font-label-md text-label-md text-on-surface">Proof of Residence</p>
+                      <p class="font-body-sm text-[11px] text-on-surface-variant">Utility bill (last 3 months)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Helpful Info Card with Image -->
+              <div class="rounded-2xl overflow-hidden shadow-sm relative h-48 group">
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLadkJkHOXuNgDqdwE-dOUbDz7R1nTmmMYS5Sn2APSwaqYd2p59tXnSuZxMvPmwNXMPeeKh1FOG9kE4BJRpL4cpPSzyR_Uh1zVGulRjCqnpNCjDFTRgFJh1KybohHU3zrUZ6dBnRYWIop9LAcgcL7b5tHorZeIg4UrebJ7Wa8LfHmS8u9ISGBCtjuTyP90bF_6e7XX91Z8SSQsD4Hm7YPsXGSL5bU2XYraM2m6C1iva_OwmjlDGzDi')"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 to-inverse-surface/20"></div>
+                <div class="absolute bottom-0 left-0 p-md w-full">
+                  <span class="material-symbols-outlined text-primary-fixed mb-xs">lightbulb</span>
+                  <h4 class="font-headline-sm text-headline-sm text-on-primary">Need Help?</h4>
+                  <p class="font-body-sm text-body-sm text-surface-container-high/80 mt-xs line-clamp-2">Watch our quick 2-minute guide on scanning documents properly for NADRA processing.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 3: CITIZEN SERVICES (LOCAL PROFESSIONAL MARKETPLACE) -->
+      <section id="citizen-services" class="page-view">
+        <div class="flex flex-col w-full bg-surface">
+          <!-- Decorative Header Background -->
+          <div class="relative w-full overflow-hidden bg-primary pb-xl pt-lg shadow-xl" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAUWPue6MzZi18dVdqwz_hhJoC5yf0fptNP3lpAKvAolEiRjj4382LtUwKooKOOZAzFQa6bvqpj1MpSqYEjectT8M7qFNPpe1S3Lg5pneAKOwsskEGdBWAIZgRoyOHTNUg6IpRhCAfQ2BxOTkKDOhjtfTqzCJV-61XzvVaD9rG5n8gbK50fYjh7_ll8NclllyXmU8EWZZgWh_SwPNw1nwWt2DLlKLl5wuQn43QD5oyj-kK3Oi9l1jW4')">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/90 to-primary-container/95"></div>
+            <div class="relative px-md max-w-max-width margin-desktop flex flex-col md:flex-row items-center gap-lg">
+              <div class="flex-1 space-y-md">
+                <span class="inline-block px-sm py-xs bg-surface-container/20 text-on-primary rounded-full font-label-md tracking-wider uppercase backdrop-blur-sm shadow-sm">Verified Network</span>
+                <h1 class="font-display-lg text-display-lg text-on-primary">Citizen Service Network</h1>
+                <p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl leading-relaxed">Connecting you with verified, highly-rated local professionals. Secure, reliable, and standardized civic services tailored to your daily needs.</p>
+                <div class="flex flex-wrap gap-sm pt-xs">
+                  <button onclick="triggerAction('Find a Service')" class="bg-primary-fixed text-on-primary-fixed font-label-md px-lg py-sm rounded-xl shadow-md hover:bg-primary-fixed-dim hover:-translate-y-0.5 transition-all flex items-center gap-xs">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">search</span>
+                    Find a Service
+                  </button>
+                  <button onclick="triggerAction('Become a Provider')" class="bg-transparent border border-outline-variant text-on-primary font-label-md px-lg py-sm rounded-xl hover:bg-surface-container/10 transition-colors flex items-center gap-xs">
+                    <span class="material-symbols-outlined">handshake</span>
+                    Become a Provider
+                  </button>
+                </div>
+              </div>
+              <div class="flex-1 w-full max-w-md hidden md:block">
+                <div class="relative rounded-2xl overflow-hidden shadow-xl" style="aspect-ratio: 4/3;">
+                  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAe1tzqWs4k1onR1mH1teYwY12CcQEtXAj3fSyTLeyY8aXXcEwXE19yesLl6sYPDV1Ysc4AH8Tp0uHTFaGs2qHJ4z99OC4VxE_DmLAjo9PXI3PKmOzCg-7zLBpjLyX_vzmmjEbwpRLKKPmuAoDW5CxrFpDoPLBi0Xo2s6v1Bhb-0uUlid6CJUVu3cmlkT9cgmYBdai98ckpbVYhoKrBUBl2tAx4l2c-qC7ZqVcYd1H52ARcyH64CmLf')"></div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-md left-md right-md flex items-center justify-between text-on-primary">
+                    <div>
+                      <p class="font-headline-md text-headline-md">10,000+</p>
+                      <p class="font-label-sm text-label-sm opacity-80">Active Providers</p>
+                    </div>
+                    <div class="flex -space-x-2">
+                      <div class="w-8 h-8 rounded-full bg-secondary-container border border-surface flex items-center justify-center shadow-sm z-30"><span class="material-symbols-outlined text-on-secondary-container text-sm">engineering</span></div>
+                      <div class="w-8 h-8 rounded-full bg-tertiary-container border border-surface flex items-center justify-center shadow-sm z-20"><span class="material-symbols-outlined text-on-tertiary-container text-sm">local_hospital</span></div>
+                      <div class="w-8 h-8 rounded-full bg-error-container border border-surface flex items-center justify-center shadow-sm z-10"><span class="material-symbols-outlined text-on-error-container text-sm">directions_car</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="px-md max-w-max-width margin-desktop w-full -mt-md relative z-10 space-y-lg pb-xl">
+            <!-- Trust Indicators -->
+            <div class="bg-surface-container-lowest rounded-2xl shadow-md p-md flex flex-wrap justify-between items-center gap-md">
+              <div class="flex items-center gap-sm">
+                <div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                </div>
+                <div>
+                  <p class="font-label-md text-label-md text-on-surface">100% Background Checked</p>
+                  <p class="font-body-md text-body-md text-on-surface-variant text-sm">NADRA verified identities</p>
+                </div>
+              </div>
+              <div class="hidden sm:block w-px h-10 bg-outline-variant/30"></div>
+              <div class="flex items-center gap-sm">
+                <div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+                  <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <div>
+                  <p class="font-label-md text-label-md text-on-surface">Citizen Rated</p>
+                  <p class="font-body-md text-body-md text-on-surface-variant text-sm">Transparent review system</p>
+                </div>
+              </div>
+              <div class="hidden md:block w-px h-10 bg-outline-variant/30"></div>
+              <div class="flex items-center gap-sm">
+                <div class="w-10 h-10 rounded-full bg-secondary-container/10 flex items-center justify-center text-secondary">
+                  <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+                </div>
+                <div>
+                  <p class="font-label-md text-label-md text-on-surface">Standardized Rates</p>
+                  <p class="font-body-md text-body-md text-on-surface-variant text-sm">Fair pricing guidelines</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service Categories Grid -->
+            <div class="space-y-md">
+              <div class="flex items-end justify-between">
+                <div>
+                  <h2 class="font-headline-lg text-headline-lg text-on-surface">Essential Services</h2>
+                  <p class="font-body-md text-body-md text-on-surface-variant mt-xs">Browse our network of certified professionals available in your sector.</p>
+                </div>
+                <button onclick="triggerAction('View All Citizen Services')" class="hidden sm:flex text-primary font-label-md items-center gap-xs hover:bg-surface-container px-sm py-xs rounded-lg transition-colors">
+                  View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+                <!-- Service 1: House Keeper -->
+                <div class="group bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden relative">
+                  <div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div class="p-md flex-1 space-y-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary shadow-sm mb-sm">
+                      <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">cleaning_services</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">House Keeper</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Professional domestic help for a clean and organized home. Screened for safety and quality.</p>
+                  </div>
+                  <div class="px-md py-sm bg-surface flex justify-between items-center mt-auto">
+                    <span class="font-label-sm text-label-sm text-secondary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">schedule</span> Usually available in 2hrs</span>
+                    <button onclick="triggerAction('Book House Keeper')" class="font-label-md text-label-md text-primary bg-primary-container/10 px-sm py-xs rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors">Book Now</button>
+                  </div>
+                </div>
+                <!-- Service 2: Mechanic -->
+                <div class="group bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden relative">
+                  <div class="absolute top-0 left-0 w-1 h-full bg-tertiary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div class="p-md flex-1 space-y-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-tertiary shadow-sm mb-sm">
+                      <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">car_repair</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-tertiary transition-colors">Mechanic</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">On-demand vehicle repair and maintenance services at your doorstep or roadside assistance.</p>
+                  </div>
+                  <div class="px-md py-sm bg-surface flex justify-between items-center mt-auto">
+                    <span class="font-label-sm text-label-sm text-secondary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">location_on</span> 24 near you</span>
+                    <button onclick="triggerAction('Explore Mechanic')" class="font-label-md text-label-md text-tertiary bg-tertiary-container/10 px-sm py-xs rounded-lg hover:bg-tertiary-container hover:text-on-tertiary-container transition-colors">Explore</button>
+                  </div>
+                </div>
+                <!-- Service 3: Car Wash -->
+                <div class="group bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden relative">
+                  <div class="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div class="p-md flex-1 space-y-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary shadow-sm mb-sm">
+                      <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">local_car_wash</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-secondary transition-colors">Car Wash Service</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Eco-friendly and convenient car detailing and washing services, brought to your location.</p>
+                  </div>
+                  <div class="px-md py-sm bg-surface flex justify-between items-center mt-auto">
+                    <span class="font-label-sm text-label-sm text-secondary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">water_drop</span> Eco-certified options</span>
+                    <button onclick="triggerAction('Book Car Wash')" class="font-label-md text-label-md text-secondary bg-secondary-container/20 px-sm py-xs rounded-lg hover:bg-secondary-container hover:text-on-secondary-container transition-colors">Book Now</button>
+                  </div>
+                </div>
+                <!-- Service 4: Taxi Driver -->
+                <div class="group bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden relative">
+                  <div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div class="p-md flex-1 space-y-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary shadow-sm mb-sm">
+                      <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">local_taxi</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Taxi Driver</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Reliable and safe transportation for your daily commute or special out-of-city trips.</p>
+                  </div>
+                  <div class="px-md py-sm bg-surface flex justify-between items-center mt-auto">
+                    <span class="font-label-sm text-label-sm text-secondary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">verified</span> City Licensed</span>
+                    <button onclick="triggerAction('Explore Taxi Driver')" class="font-label-md text-label-md text-primary bg-primary-container/10 px-sm py-xs rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors">Explore</button>
+                  </div>
+                </div>
+                <!-- Service 5: Home Tutor -->
+                <div class="group bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden relative">
+                  <div class="absolute top-0 left-0 w-1 h-full bg-tertiary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div class="p-md flex-1 space-y-sm">
+                    <div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-tertiary shadow-sm mb-sm">
+                      <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">school</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-tertiary transition-colors">Home Tutor</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Expert educators for personalized learning across various subjects and grades. HEC verified degrees.</p>
+                  </div>
+                  <div class="px-md py-sm bg-surface flex justify-between items-center mt-auto">
+                    <span class="font-label-sm text-label-sm text-secondary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">menu_book</span> K-12 & University</span>
+                    <button onclick="triggerAction('Book Home Tutor')" class="font-label-md text-label-md text-tertiary bg-tertiary-container/10 px-sm py-xs rounded-lg hover:bg-tertiary-container hover:text-on-tertiary-container transition-colors">Book Now</button>
+                  </div>
+                </div>
+                <!-- Service 6: Doctor or Nurse -->
+                <div class="group bg-surface-container-lowest rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col overflow-hidden relative">
+                  <div class="absolute top-0 left-0 w-1 h-full bg-error opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div class="p-md flex-1 space-y-sm">
+                    <div class="w-12 h-12 rounded-xl bg-error-container/30 flex items-center justify-center text-error shadow-sm mb-sm">
+                      <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-error transition-colors">Doctor or Nurse</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Qualified healthcare professionals for home visits, basic medical care, and post-op support.</p>
+                  </div>
+                  <div class="px-md py-sm bg-surface flex justify-between items-center mt-auto">
+                    <span class="font-label-sm text-label-sm text-secondary flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]">local_hospital</span> PMDC Registered</span>
+                    <button onclick="triggerAction('Explore Doctor or Nurse')" class="font-label-md text-label-md text-error bg-error-container/20 px-sm py-xs rounded-lg hover:bg-error-container hover:text-on-error-container transition-colors">Explore</button>
+                  </div>
+                </div>
+              </div>
+              <button onclick="triggerAction('View All Citizen Services')" class="w-full sm:hidden mt-sm bg-surface-container text-on-surface font-label-md py-sm rounded-xl hover:bg-surface-container-high transition-colors">
+                View All Services
+              </button>
+            </div>
+
+            <!-- Live Map Context Area -->
+            <div class="bg-surface-container-low rounded-2xl p-md flex flex-col md:flex-row gap-lg shadow-sm">
+              <div class="flex-1 flex flex-col justify-center space-y-md">
+                <div class="inline-flex items-center gap-xs bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full w-fit">
+                  <span class="material-symbols-outlined text-[16px]">radar</span>
+                  <span class="font-label-sm uppercase tracking-wider">Live Availability</span>
+                </div>
+                <h3 class="font-headline-lg text-headline-lg text-on-surface">Find Help Nearby</h3>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">See service providers currently active in your district. Availability updates in real-time based on your saved primary address.</p>
+                <div class="flex flex-col gap-sm pt-xs">
+                  <div class="flex items-center gap-sm bg-surface p-sm rounded-xl shadow-sm">
+                    <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                      <div class="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+                    </div>
+                    <div class="flex-1">
+                      <p class="font-label-md text-label-md text-on-surface">G-11, Islamabad</p>
+                      <p class="font-body-md text-body-md text-on-surface-variant text-sm">Your Current Location</p>
+                    </div>
+                    <button onclick="triggerAction('Edit Location')" class="text-primary hover:bg-primary/10 p-xs rounded-full transition-colors"><span class="material-symbols-outlined">edit</span></button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-1">
+                <div class="w-full h-[300px] rounded-xl shadow-md overflow-hidden relative cursor-pointer" onclick="getDirections('G-11, Islamabad')" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDyRgaCZFXzVfPvWMyPzwR6apGYBMWrNG0OplJKZlgO3xwWfq2HM-P4cOk6zLXiypEpA08PiEzh2WB3_BxzCuHXma-ygy3-gAHFJEnT68osASCeG9hJwuyBuJKQefb-0OvNprv6E_-17srvGIsALRZ7px_hTuil6g1XT2MVuzNEhKxjN3LB_t7bqInp5aYg_MlzAx-w4MY9OSIcqBzEyC2fJVpNwmw1bU4a3sRGdMwo3RCk2ItLDKS6')">
+                  <!-- Interactive overlays could go here if map was a real component -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 4: WOMEN SAFETY -->
+      <section id="women-safety" class="page-view">
+        <div class="flex flex-col w-full gap-lg px-md pb-xl pt-lg max-w-7xl mx-auto">
+          <div class="flex flex-col gap-sm md:flex-row md:items-end justify-between">
+            <div class="flex flex-col gap-xs">
+              <h1 class="font-display-lg text-display-lg text-on-surface">Women's Security &amp; Safety</h1>
+              <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Immediate access to emergency services, confidential reporting, and critical resources for women's safety across Pakistan.</p>
+            </div>
+            <div class="flex items-center gap-xs mt-md md:mt-0">
+              <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+              <span class="font-label-md text-label-md text-primary tracking-widest uppercase">Verified Secure Connection</span>
+            </div>
+          </div>
+
+          <!-- Emergency Dialing Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+            <button onclick="triggerEmergencyCall('15', 'Police Emergency')" class="relative overflow-hidden group bg-error text-on-error rounded-3xl p-md flex items-center justify-between shadow-lg transition-transform hover:-translate-y-1 active:translate-y-0">
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+              <div class="flex items-center gap-md relative z-10">
+                <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                  <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">local_police</span>
+                </div>
+                <div class="text-left flex flex-col gap-base">
+                  <span class="font-headline-md text-headline-md leading-none">Police Emergency (15)</span>
+                  <span class="font-body-md text-body-md opacity-90">Tap to call local police immediately</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-3xl opacity-50 group-hover:opacity-100 transition-opacity relative z-10 hidden sm:block" style="font-variation-settings: 'FILL' 1;">call</span>
+            </button>
+            <button onclick="triggerEmergencyCall('1043', 'Women Helpline')" class="relative overflow-hidden group bg-primary text-on-primary rounded-3xl p-md flex items-center justify-between shadow-lg transition-transform hover:-translate-y-1 active:translate-y-0">
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+              <div class="flex items-center gap-md relative z-10">
+                <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
+                  <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+                </div>
+                <div class="text-left flex flex-col gap-base">
+                  <span class="font-headline-md text-headline-md leading-none">Women's Helpline (1043)</span>
+                  <span class="font-body-md text-body-md opacity-90">24/7 confidential support and guidance</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-3xl opacity-50 group-hover:opacity-100 transition-opacity relative z-10 hidden sm:block" style="font-variation-settings: 'FILL' 1;">call</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg mt-md">
+            <div class="lg:col-span-8 flex flex-col gap-md">
+              <div class="bg-surface-container-low rounded-3xl p-lg relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
+                <div class="relative z-10 flex flex-col gap-md">
+                  <div class="flex items-center gap-sm">
+                    <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">lock</span>
+                    <h2 class="font-headline-lg text-headline-lg text-on-surface">Confidential Reporting</h2>
+                  </div>
+                  <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                    Submit complaints regarding harassment, domestic violence, or workplace issues securely. Your identity remains strictly confidential unless you choose otherwise.
+                  </p>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-sm mt-sm">
+                    <a class="bg-surface rounded-2xl p-sm flex flex-col gap-sm group hover:shadow-md transition-all" href="#" onclick="triggerAction('Report Workplace Harassment')">
+                      <div class="w-10 h-10 rounded-full bg-primary-container/20 text-primary-container flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined">work</span>
+                      </div>
+                      <div>
+                        <h3 class="font-label-md text-label-md text-on-surface font-bold">Workplace Harassment</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant text-sm mt-base">Report incidents under the Protection Against Harassment Act.</p>
+                      </div>
+                    </a>
+                    <a class="bg-surface rounded-2xl p-sm flex flex-col gap-sm group hover:shadow-md transition-all" href="#" onclick="triggerAction('Report Domestic Violence')">
+                      <div class="w-10 h-10 rounded-full bg-error-container/40 text-error flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined">home</span>
+                      </div>
+                      <div>
+                        <h3 class="font-label-md text-label-md text-on-surface font-bold">Domestic Violence</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant text-sm mt-base">Seek immediate intervention or file a formal complaint securely.</p>
+                      </div>
+                    </a>
+                    <a class="bg-surface rounded-2xl p-sm flex flex-col gap-sm group hover:shadow-md transition-all" href="#" onclick="triggerAction('Report Cyber Harassment')">
+                      <div class="w-10 h-10 rounded-full bg-tertiary-container/20 text-tertiary-container flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined">devices</span>
+                      </div>
+                      <div>
+                        <h3 class="font-label-md text-label-md text-on-surface font-bold">Cyber Harassment</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant text-sm mt-base">Report online bullying, blackmail, or unauthorized image sharing (FIA).</p>
+                      </div>
+                    </a>
+                    <a class="bg-primary text-on-primary rounded-2xl p-sm flex flex-col items-center justify-center gap-sm group hover:shadow-md transition-all text-center" href="#" onclick="triggerAction('New Confidential Report')">
+                      <span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">add_circle</span>
+                      <span class="font-label-md text-label-md font-bold">Start New Report</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Daily Safety Tip -->
+              <div class="bg-surface-container rounded-3xl p-md flex flex-col md:flex-row gap-md items-center shadow-sm">
+                <div class="w-full md:w-1/3 aspect-square md:aspect-auto md:h-48 rounded-2xl overflow-hidden relative">
+                  <img class="w-full h-full object-cover" alt="Pakistani women community" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBezE39O2bs1Pm6smuj-gEp6h3OtQHBG2WeYrxprAlfp2243fQ3phG2dIJ5zxiPWXigfu8H4tTMoU-trqq8oRkj2bnGogyAyH2QfIIZgU3yrZtFS-47r6qtIhJT9sJRHnN1RffpI3BtoLd24wFLEaf02wa3tF1Og6XvG1Jf-J3O7aLOudJyXaGFQMJGq4504dVqfa3kocOUgfzmOXAn4r5tkxC7YCT9qpMFavW1B1wMDJJc8LIJTUjw"/>
+                </div>
+                <div class="flex-1 flex flex-col gap-sm">
+                  <div class="flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-tertiary text-sm">auto_awesome</span>
+                    <span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Daily Safety Tip</span>
+                  </div>
+                  <h3 class="font-headline-md text-headline-md text-on-surface">Stay Aware of Your Surroundings</h3>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    When traveling alone, especially at night, share your live location with a trusted contact via the portal's integrated sharing feature. Trust your instincts and avoid poorly lit areas.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 flex flex-col gap-lg">
+              <div class="flex flex-col gap-sm">
+                <h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-xs">
+                  <span class="material-symbols-outlined text-primary">gavel</span>
+                  Legal Rights &amp; Resources
+                </h2>
+                <div class="flex flex-col gap-xs">
+                  <button onclick="triggerAction('Property & Inheritance Rights')" class="w-full bg-surface-container-low hover:bg-surface-container transition-colors rounded-xl p-sm flex items-center justify-between group text-left">
+                    <div class="flex items-center gap-sm">
+                      <div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+                        <span class="material-symbols-outlined text-sm">article</span>
+                      </div>
+                      <span class="font-label-md text-label-md text-on-surface">Property &amp; Inheritance Rights</span>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all">arrow_forward</span>
+                  </button>
+                  <button onclick="triggerAction('Family Law & Custody')" class="w-full bg-surface-container-low hover:bg-surface-container transition-colors rounded-xl p-sm flex items-center justify-between group text-left">
+                    <div class="flex items-center gap-sm">
+                      <div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+                        <span class="material-symbols-outlined text-sm">family_restroom</span>
+                      </div>
+                      <span class="font-label-md text-label-md text-on-surface">Family Law &amp; Custody</span>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all">arrow_forward</span>
+                  </button>
+                  <button onclick="triggerAction('Financial Independence Ehsaas')" class="w-full bg-surface-container-low hover:bg-surface-container transition-colors rounded-xl p-sm flex items-center justify-between group text-left">
+                    <div class="flex items-center gap-sm">
+                      <div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+                        <span class="material-symbols-outlined text-sm">payments</span>
+                      </div>
+                      <span class="font-label-md text-label-md text-on-surface">Financial Independence (Ehsaas)</span>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all">arrow_forward</span>
+                  </button>
+                  <button onclick="triggerAction('Pro Bono Legal Aid Centers')" class="w-full bg-surface-container-low hover:bg-surface-container transition-colors rounded-xl p-sm flex items-center justify-between group text-left">
+                    <div class="flex items-center gap-sm">
+                      <div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+                        <span class="material-symbols-outlined text-sm">book</span>
+                      </div>
+                      <span class="font-label-md text-label-md text-on-surface">Pro Bono Legal Aid Centers</span>
+                    </div>
+                    <span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Support Centers -->
+              <div class="flex flex-col gap-sm h-full">
+                <h2 class="font-headline-md text-headline-md text-on-surface flex items-center gap-xs">
+                  <span class="material-symbols-outlined text-primary">location_on</span>
+                  Nearby Support Centers
+                </h2>
+                <div class="flex-1 bg-surface-container rounded-3xl overflow-hidden relative shadow-sm min-h-[300px] flex flex-col">
+                  <div class="w-full h-48 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgxMo6NFy6k3pvVx0nknMqeErRAlnVDZe90WJXJnbeYSdNhu7idgJHYd_A2KMBSNCC1rDQhLYaCW2jkziE2aqPQjmNOzvvEsG4GHkkkgFykuUNAzBi-i9GQ-qN6k3jJ5cEix9_wMOme3TDlo5VuRHewG0v5jfkZFOjWLI6YHP6lim0nShxPRtB9xjjYjmd4KaHzPTwZ1FGZfn5u8ZLzmD7Pk_3U4L4mLRnptVrqaGzKlTK7Wkwbg3_')"></div>
+                  <div class="p-sm flex flex-col gap-xs flex-1 bg-surface-container">
+                    <div class="bg-surface p-sm rounded-xl flex items-start gap-sm cursor-pointer hover:bg-surface-container-high transition-colors" onclick="getDirections('Women Police Station G-7')">
+                      <span class="material-symbols-outlined text-error mt-1" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                      <div class="flex flex-col">
+                        <span class="font-label-md text-label-md text-on-surface font-bold">Women Police Station G-7</span>
+                        <span class="font-body-md text-body-md text-on-surface-variant text-sm">2.4 km away • Open 24/7</span>
+                      </div>
+                    </div>
+                    <div class="bg-surface p-sm rounded-xl flex items-start gap-sm cursor-pointer hover:bg-surface-container-high transition-colors" onclick="getDirections('PIMS Crisis Center')">
+                      <span class="material-symbols-outlined text-primary mt-1" style="font-variation-settings: 'FILL' 1;">local_hospital</span>
+                      <div class="flex flex-col">
+                        <span class="font-label-md text-label-md text-on-surface font-bold">PIMS Crisis Center</span>
+                        <span class="font-body-md text-body-md text-on-surface-variant text-sm">3.1 km away • Medical &amp; Legal aid</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE 5: JOBS & SKILLS -->
+      <section id="jobs-skills" class="page-view">
+<div class="flex flex-col w-full h-full min-h-[calc(100vh-64px)] bg-surface">
+<div class="px-md md:px-lg py-lg space-y-lg md:space-y-xl max-w-max-width mx-auto w-full">
+<!-- Hero / Intro -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-sm">Explore Opportunities</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Discover public sector jobs, private employment opportunities, and skill development programs tailored for citizens.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-md py-sm rounded-full shadow-md hover:bg-surface-tint transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">add</span>
+          Post Opportunity
+        </button>
+</div>
+</div>
+<!-- Search and Filter Bar -->
+<div class="bg-surface-container rounded-xl p-sm md:p-md shadow-sm flex flex-col md:flex-row gap-sm items-center">
+<div class="flex-1 w-full relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface py-sm pl-xl pr-sm rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20 transition-shadow" placeholder="Search jobs, skills, or training programs..." type="text"/>
+</div>
+<div class="flex gap-sm w-full md:w-auto overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+<select class="bg-surface py-sm px-md rounded-lg text-body-md font-body-md text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/20 min-w-[140px]">
+<option>All Sectors</option>
+<option>Public/Govt</option>
+<option>Private IT</option>
+<option>Healthcare</option>
+</select>
+<select class="bg-surface py-sm px-md rounded-lg text-body-md font-body-md text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/20 min-w-[140px]">
+<option>All Locations</option>
+<option>Islamabad</option>
+<option>Lahore</option>
+<option>Karachi</option>
+</select>
+<button class="bg-surface text-on-surface-variant py-sm px-md rounded-lg font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center gap-xs whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+          Filters
+        </button>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left Column: Jobs Feed -->
+<div class="lg:col-span-8 space-y-md">
+<div class="flex justify-between items-center mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Recent Postings</h2>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest cursor-pointer hover:underline">View All</span>
+</div>
+<div class="space-y-sm">
+<!-- Job Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start mb-sm">
+<div class="flex gap-md items-start">
+<div class="w-12 h-12 bg-primary-container/20 rounded-lg flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-base group-hover:text-primary transition-colors">Senior Data Analyst (BPS-17)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ministry of Information Technology • Islamabad</p>
+</div>
+</div>
+<button class="text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark_border</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-xs mt-md">
+<span class="bg-secondary-container/50 text-on-secondary-container px-xs py-base rounded-md font-label-sm text-label-sm">Public Sector</span>
+<span class="bg-surface-container-high text-on-surface px-xs py-base rounded-md font-label-sm text-label-sm">Full Time</span>
+<span class="bg-surface-container-high text-on-surface px-xs py-base rounded-md font-label-sm text-label-sm">Min. 5 Yrs Exp.</span>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex gap-md items-start">
+<div class="w-12 h-12 bg-tertiary-container/10 rounded-lg flex items-center justify-center text-tertiary-container shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-base group-hover:text-primary transition-colors">Frontend Developer (React)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">TechHub Incubator • Remote / Lahore</p>
+</div>
+</div>
+<button class="text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark_border</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-xs mt-md">
+<span class="bg-tertiary-container/10 text-on-tertiary-container px-xs py-base rounded-md font-label-sm text-label-sm">Private IT</span>
+<span class="bg-surface-container-high text-on-surface px-xs py-base rounded-md font-label-sm text-label-sm">Contract</span>
+<span class="bg-surface-container-high text-on-surface px-xs py-base rounded-md font-label-sm text-label-sm">Remote</span>
+</div>
+</div>
+<!-- Job Card 3 -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm hover:shadow-md transition-shadow group cursor-pointer relative overflow-hidden">
+<div class="flex justify-between items-start mb-sm">
+<div class="flex gap-md items-start">
+<div class="w-12 h-12 bg-error-container/20 rounded-lg flex items-center justify-center text-on-error-container shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_hospital</span>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-base group-hover:text-primary transition-colors">Medical Officer (Evening Shift)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">District Headquarter Hospital • Rawalpindi</p>
+</div>
+</div>
+<button class="text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bookmark_border</span>
+</button>
+</div>
+<div class="flex flex-wrap gap-xs mt-md">
+<span class="bg-error-container/20 text-on-error-container px-xs py-base rounded-md font-label-sm text-label-sm">Healthcare</span>
+<span class="bg-surface-container-high text-on-surface px-xs py-base rounded-md font-label-sm text-label-sm">Shift Based</span>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-md">
+<button class="font-label-md text-label-md text-primary bg-primary/5 hover:bg-primary/10 px-md py-sm rounded-full transition-colors">Load More</button>
+</div>
+</div>
+<!-- Right Column: Training & Skills -->
+<div class="lg:col-span-4 space-y-md">
+<!-- Skill Assessment Promo -->
+<div class="bg-primary text-on-primary rounded-2xl p-md shadow-md relative overflow-hidden">
+<div class="absolute right-0 bottom-0 opacity-10 transform translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined text-[120px]">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-xs relative z-10">Skill Assessment</h3>
+<p class="font-body-md text-body-md text-on-primary/80 mb-md relative z-10">Take our standardized test to verify your skills and stand out to employers.</p>
+<button class="bg-surface text-primary font-label-md text-label-md px-md py-sm rounded-lg hover:bg-surface-container transition-colors w-full relative z-10">Start Assessment</button>
+</div>
+<div class="flex justify-between items-center mt-lg mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Training Programs</h2>
+</div>
+<!-- Training Cards -->
+<div class="space-y-sm">
+<!-- Training 1 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden hover:shadow-md transition-shadow group cursor-pointer">
+<div class="h-32 w-full bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBuVDIWXtBH9BjVEYiMh1ZlYT-7OWZ9K1nbXSYyRRtV_0s2NSGlGgl2xZp1Ftamk6eyQhdIyQWgJSeQZXoof3LcNSEJkSALWveCfvrtUpZ2Zh5a_jWgNEqc4wfO2kIIMv01ce21voY5xpcanHGYcEmzKrD6Q7mmbJ1T-iTwtW7xvJBm6YRT-1KEvLdz5XcEQPjm6a0LT5XQRXE08u_EdWZBLR9cPYwfgm43d1rA-EeWC1wr8BUdIMAl')">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm flex justify-between items-end">
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-xs py-base rounded-md">Free</span>
+<span class="text-white font-label-sm text-label-sm flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]">schedule</span> 12 Weeks</span>
+</div>
+</div>
+<div class="p-sm">
+<h4 class="font-label-md text-label-md text-on-surface mb-base group-hover:text-primary transition-colors">National Freelance Training Program</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 text-sm">Learn highly in-demand digital skills and start earning online through leading freelance platforms.</p>
+</div>
+</div>
+<!-- Training 2 -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden hover:shadow-md transition-shadow group cursor-pointer">
+<div class="h-32 w-full bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCixcoMZqjgRMYePRWq-FIlTDQtwEa8fsVx6_gzCDc3mINLQprT-Z-XOVM_DQfMoRlGiOUZFia1gju1V68G1n6Octeq7FUHQ6uOQyYQlxUreDghG3FAmI5jjFxWvfZZ79hwDBib-04OMyFQkznXVtnMEvxH8pS-wDITC5xc17qLUXhDBtTicQIvudaU8ws-4b7W77sH0TS3YQ6K-Car08ZbwzkJbpMNyN0GXMzEEsUMEiEZSLamqE9a')">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-sm left-sm right-sm flex justify-between items-end">
+<span class="bg-surface text-on-surface font-label-sm text-label-sm px-xs py-base rounded-md">Stipend: Rs. 5000/mo</span>
+</div>
+</div>
+<div class="p-sm">
+<h4 class="font-label-md text-label-md text-on-surface mb-base group-hover:text-primary transition-colors">Vocational Skills (TEVTA)</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 text-sm">Practical certification courses in electronics, plumbing, and automotive repair.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+      <!-- PAGE 6: RIGHTS & CIVIC -->
+      <section id="rights-civic" class="page-view">
+<div class="flex flex-col w-full relative">
+<!-- Desktop Hero Section / Intro -->
+<section class="relative w-full pt-16 pb-24 overflow-hidden rounded-b-[40px] bg-primary">
+<!-- Background Texture -->
+<div class="absolute inset-0 z-0">
+<svg class="absolute w-full h-full object-cover mix-blend-overlay opacity-20" preserveaspectratio="none" viewbox="0 0 100 100">
+<defs>
+<pattern height="10" id="gridPattern" patternunits="userSpaceOnUse" width="10">
+<circle cx="5" cy="5" fill="currentColor" r="1"></circle>
+</pattern>
+</defs>
+<rect fill="url(#gridPattern)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<!-- Content -->
+<div class="relative z-10 w-full max-w-max-width mx-auto px-md lg:px-xl flex flex-col lg:flex-row items-center justify-between gap-xl">
+<div class="flex-1 text-center lg:text-left space-y-sm">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed/20 border border-primary-fixed/30 text-on-primary font-label-md text-label-md mb-2">
+<span class="material-symbols-outlined text-[16px]">gavel</span>
+            Civic Engagement Portal
+        </div>
+<h1 class="font-display-lg text-display-lg text-on-primary">Empowering citizens through knowledge & access.</h1>
+<p class="font-body-lg text-body-lg text-on-primary/80 max-w-2xl mx-auto lg:mx-0">
+          Understand your constitutional rights, participate in civic duties, and access essential legal aid services tailored for every citizen of Pakistan.
+        </p>
+</div>
+<!-- Hero Visual - overlapping stats card -->
+<div class="hidden lg:flex w-80 relative flex-shrink-0 group">
+<div class="absolute inset-0 bg-primary-container blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700"></div>
+<div class="relative w-full bg-surface rounded-[24px] p-lg shadow-2xl overflow-hidden group-hover:-translate-y-2 transition-transform duration-500">
+<!-- decorative arc -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full"></div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">New Legislation</p>
+<p class="font-headline-md text-headline-md text-on-surface">1,248</p>
+</div>
+</div>
+<div class="h-px bg-outline-variant/30 w-full my-2"></div>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">volunteer_activism</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Aid Provided</p>
+<p class="font-headline-md text-headline-md text-on-surface">34k+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="w-full max-w-max-width mx-auto px-md lg:px-xl -mt-12 z-20 relative space-y-xl pb-24">
+<!-- Overview Metrics (Bento Grid Style) -->
+<section>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Quick Action Card 1 -->
+<button class="text-left group relative bg-surface-container rounded-2xl p-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+<div class="absolute right-0 bottom-0 w-32 h-32 bg-primary/5 rounded-tl-full -z-10 group-hover:scale-150 transition-transform duration-700"></div>
+<div class="flex justify-between items-start mb-12">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">library_books</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Constitutional Rights</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Explore fundamental rights guaranteed to every citizen.</p>
+</button>
+<!-- Quick Action Card 2 -->
+<button class="text-left group relative bg-surface-container rounded-2xl p-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+<div class="absolute right-0 bottom-0 w-32 h-32 bg-secondary/5 rounded-tl-full -z-10 group-hover:scale-150 transition-transform duration-700"></div>
+<div class="flex justify-between items-start mb-12">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined">how_to_vote</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Voter Registration</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Check your electoral status and polling station.</p>
+</button>
+<!-- Quick Action Card 3 -->
+<button class="text-left group relative bg-surface-container rounded-2xl p-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+<div class="absolute right-0 bottom-0 w-32 h-32 bg-error/5 rounded-tl-full -z-10 group-hover:scale-150 transition-transform duration-700"></div>
+<div class="flex justify-between items-start mb-12">
+<div class="w-10 h-10 rounded-full bg-error/10 flex items-center justify-center text-error group-hover:bg-error group-hover:text-on-error transition-colors">
+<span class="material-symbols-outlined">balance</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-error transition-colors transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Legal Aid Request</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Apply for government-provided legal assistance.</p>
+</button>
+</div>
+</section>
+<!-- Educational Resources Section - Asymmetric Layout -->
+<section class="mt-xl pt-lg">
+<div class="flex flex-col md:flex-row justify-between items-end mb-lg gap-4">
+<div>
+<p class="font-label-md text-label-md text-primary uppercase tracking-widest mb-2 flex items-center gap-2">
+<span class="w-4 h-[2px] bg-primary inline-block"></span> Knowledge Base
+                </p>
+<h2 class="font-display-lg text-display-lg text-on-surface leading-tight">Civic Education Resources</h2>
+</div>
+<button class="group flex items-center gap-2 font-label-md text-label-md text-primary hover:text-primary-container transition-colors">
+                View All Resources
+                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md">
+<!-- Featured Article (Span 8) -->
+<div class="lg:col-span-8 group cursor-pointer relative rounded-3xl overflow-hidden min-h-[400px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVybSo3XQQzB2OZwQk0JewLGm-0pRdDEkNu3lvbZmp408vGB3rj3Yspf7HWmUHz39vvmaYWzdSICtCySuZ8jLw3DcxweIsjiKW6r8BjBNWN3q4SbQ0REDplYupZcFk-clqmzHbrsR4sx2GajTk1UcZsylMM45vVIBNM3YiNAJV4HDXse-3fTNrxCwYePukinQgKkLlU5PDnNA9WuOpQ5Hv6Ecv5AE2eFYuWZmdFh42zGN8fobDuLH5')">
+</div>
+<!-- Scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-inverse-surface/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-lg w-full text-inverse-on-surface">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 bg-primary/80 backdrop-blur-md rounded-full font-label-sm text-label-sm uppercase">Constitution</span>
+<span class="px-3 py-1 bg-surface/20 backdrop-blur-md rounded-full font-label-sm text-label-sm uppercase">Article 25</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-2 group-hover:text-primary-fixed transition-colors">Understanding Equality of Citizens</h3>
+<p class="font-body-md text-body-md opacity-80 max-w-2xl line-clamp-2">A comprehensive guide to Article 25 of the Constitution of Pakistan, ensuring equality before law and equal protection of law for all citizens regardless of gender.</p>
+</div>
+</div>
+<!-- List Articles (Span 4) -->
+<div class="lg:col-span-4 flex flex-col gap-sm">
+<!-- Mini Card 1 -->
+<div class="flex-1 bg-surface-container-low rounded-2xl p-sm flex gap-4 cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="w-24 h-24 rounded-xl flex-shrink-0 bg-cover bg-center overflow-hidden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDU54keJR0oUE9UR0czXtKCx6pN7STiIv_jyzBXfdIcN0vQ7CGbDiXmZixc4sACidhS5qyOl6fOVww2YY8oAZHdE_s4i9O5aNeuYr6Po73k6oB3B0YX8pwHebsI-1EsR00wf8Ipkn8UOfGspreq60zJZWXlsg5wPasw-iNTOHTcH-fEE-kfkpOdJTvSP3E_0kcbFhAmrhyhyG2SUiiedKmvoKYd4qCTCgV2vR4YUmtP8izY-vE-14pI')">
+</div>
+<div class="flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-secondary uppercase mb-1 tracking-wider">Labor Laws</span>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-2">Worker Rights & Employer Obligations</h4>
+</div>
+</div>
+<!-- Mini Card 2 -->
+<div class="flex-1 bg-surface-container-low rounded-2xl p-sm flex gap-4 cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="w-24 h-24 rounded-xl flex-shrink-0 bg-cover bg-center overflow-hidden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4Gp8sBxA1GC7ljGmkwizX3aMfaBTaL2Dr28oR7gQrtvVdN0Z3LLgbMdI4ulbb6Hu4LhOsNUbYXcFY4hf7VTO5RnGJgcr_ytakIJ3AjqHYSH8TTiJc22WmjoZHSKLkXEcFynZuG5pJq4rZX4X_eNtoK1kAA2oGokZl1sNWbX-crXxjWSsHdr2N3AqKMsc26ZfjoWV8iaDag4vpDu_KFBGVo4msVAUJB9WB5Ix3d8WeQbCp_6BPbvnh')">
+</div>
+<div class="flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-secondary uppercase mb-1 tracking-wider">Democracy</span>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-2">How to register as an overseas voter</h4>
+</div>
+</div>
+<!-- Mini Card 3 -->
+<div class="flex-1 bg-surface-container-low rounded-2xl p-sm flex gap-4 cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="w-24 h-24 rounded-xl flex-shrink-0 bg-cover bg-center overflow-hidden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHUGNmCILXhaGMZCK28Q1qfFrm09eWaqW4sBPLO1H5F1dXz8cwtvqzwnN9Yp1Qfa3UgXoAEYThmIjYhuSJnfziPfINSoPQfvei-oMLEBH8CJkh9lDLC07LRkDw5KZRDyqF3XYuklrq2KlXp2rmoWTZWrav6Iqxd5Bhy71azWkWLPw1uq22JotrfhWx08RKvhCAS3moIAlCLj2TWdPHfbMLODg4vUa5z4dRDINUHx1KI6Ilxw-FPxRl')">
+</div>
+<div class="flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-secondary uppercase mb-1 tracking-wider">Civil Rights</span>
+<h4 class="font-body-lg text-body-lg text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-2">Filing an Information Request (RTI)</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</section>
+
+      <!-- PAGE 7: WELFARE & ZAKAT -->
+      <section id="welfare-zakat" class="page-view">
+<div class="flex flex-col w-full gap-lg pb-xl md:max-w-max-width md:mx-margin-desktop px-sm md:px-md pt-lg">
+<!-- Header & Quick Stats -->
+<div class="flex flex-col gap-md">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase">Financial Year 2023-24</span>
+<h1 class="font-display-lg text-display-lg text-on-background">Welfare & Zakat</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Manage national Zakat collection, track disbursement programs, and calculate individual Nisab thresholds for citizens.</p>
+</div>
+<button class="bg-primary text-on-primary px-md py-sm rounded-full font-label-md text-label-md hover:bg-surface-tint shadow-md flex gap-xs items-center transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span> Initiate Dispersal
+            </button>
+</div>
+<!-- Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-sm">
+<div class="bg-surface-container rounded-xl p-md shadow-sm relative overflow-hidden flex flex-col gap-sm">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full blur-xl"></div>
+<div class="flex justify-between items-center z-10">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Zakat Collected</span>
+<span class="material-symbols-outlined text-primary">account_balance</span>
+</div>
+<div class="z-10 flex flex-col">
+<span class="font-headline-lg text-headline-lg text-on-surface">Rs. 14.2B</span>
+<span class="font-label-sm text-label-sm text-primary-container flex items-center gap-base">
+<span class="material-symbols-outlined text-[16px]">trending_up</span> +12% from last year
+                    </span>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl p-md shadow-sm relative overflow-hidden flex flex-col gap-sm">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary-container/20 rounded-full blur-xl"></div>
+<div class="flex justify-between items-center z-10">
+<span class="font-label-md text-label-md text-on-surface-variant">Active Beneficiaries</span>
+<span class="material-symbols-outlined text-secondary">groups</span>
+</div>
+<div class="z-10 flex flex-col">
+<span class="font-headline-lg text-headline-lg text-on-surface">2.4M</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-base">
+                        Verified across 4 provinces
+                    </span>
+</div>
+</div>
+<div class="bg-primary-container text-on-primary-container rounded-xl p-md shadow-sm relative overflow-hidden flex flex-col gap-sm">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-fixed/20 rounded-full blur-xl"></div>
+<div class="flex justify-between items-center z-10">
+<span class="font-label-md text-label-md text-on-primary-container opacity-90">Current Silver Nisab</span>
+<span class="material-symbols-outlined text-on-primary-container">monetization_on</span>
+</div>
+<div class="z-10 flex flex-col">
+<span class="font-headline-lg text-headline-lg text-on-primary-container">Rs. 135,382</span>
+<span class="font-label-sm text-label-sm text-on-primary-container opacity-80 flex items-center gap-base">
+                        Updated today (52.5 Tola)
+                    </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Split -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Zakat Calculator -->
+<div class="lg:col-span-5 flex flex-col gap-md">
+<div class="bg-surface-container-low rounded-xl p-md shadow-sm flex flex-col gap-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined">calculate</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Nisab Calculator</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Calculate 2.5% obligatory Zakat</p>
+</div>
+</div>
+<div class="flex flex-col gap-sm">
+<label class="flex flex-col gap-base">
+<span class="font-label-md text-label-md text-on-surface-variant">Gold Equivalent (Rs)</span>
+<input class="w-full bg-surface-container-highest text-on-surface font-body-md text-body-md p-sm rounded-lg outline-none focus:bg-surface-container-high transition-colors placeholder:text-on-surface-variant/50" id="zakat-gold" placeholder="0" type="number"/>
+</label>
+<label class="flex flex-col gap-base">
+<span class="font-label-md text-label-md text-on-surface-variant">Silver / Cash / Savings (Rs)</span>
+<input class="w-full bg-surface-container-highest text-on-surface font-body-md text-body-md p-sm rounded-lg outline-none focus:bg-surface-container-high transition-colors placeholder:text-on-surface-variant/50" id="zakat-cash" placeholder="0" type="number"/>
+</label>
+<label class="flex flex-col gap-base">
+<span class="font-label-md text-label-md text-on-surface-variant">Liabilities & Debts (Rs)</span>
+<input class="w-full bg-surface-container-highest text-on-surface font-body-md text-body-md p-sm rounded-lg outline-none focus:bg-surface-container-high transition-colors placeholder:text-on-surface-variant/50" id="zakat-liabilities" placeholder="0" type="number"/>
+</label>
+</div>
+<div class="bg-primary text-on-primary rounded-xl p-md mt-sm flex flex-col gap-sm shadow-md">
+<span class="font-label-md text-label-md opacity-80 uppercase tracking-widest">Total Payable Zakat</span>
+<span class="font-display-lg text-display-lg" id="zakat-total">Rs. 0</span>
+<p class="font-label-sm text-label-sm opacity-80" id="zakat-status">Below Nisab Threshold</p>
+</div>
+</div>
+<div class="bg-cover bg-center w-full h-48 rounded-xl shadow-sm relative overflow-hidden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAO2wSOz-EX1-1j6Bq7DY-HHTRIE_8Wn1vnN9jLgWKFvYwhRR9dVO1rgl7bHuxRlcfediy2jybC2fpbJx33OVrA69XebuSHOiKDtaj4NWgNJ6umVeMw2Lcuamhcj9VUwqWxeFDTnhN8gyOX7AmL8G6WqQ_UrkeSxdRvdxsEsmZzpKpTXfpxU7oc-uoIswENshmpcaPluUW1RMMliW2WgFcjI2jELPG46_wby4AFRFSFIYaX0QpaHe29')">
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-md">
+<h3 class="font-headline-md text-headline-md text-on-tertiary">Empowering Citizens</h3>
+<p class="font-label-sm text-label-sm text-on-tertiary/80">Transparency in every transaction</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Programs & Distribution -->
+<div class="lg:col-span-7 flex flex-col gap-md">
+<h2 class="font-headline-md text-headline-md text-on-surface mt-xs">National Welfare Programs</h2>
+<!-- Bento Grid of Programs -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+<!-- Program Card 1 -->
+<div class="bg-surface-container rounded-xl p-md shadow-sm hover:shadow-md transition-shadow group flex flex-col gap-md relative overflow-hidden cursor-pointer">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Sehat Sahulat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-xs">Comprehensive health insurance coverage for underprivileged families.</p>
+</div>
+<div class="flex items-center gap-xs mt-auto">
+<span class="bg-secondary-container text-on-secondary-container px-xs py-base rounded-md font-label-sm text-label-sm">Active</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-base ml-auto group-hover:translate-x-1 transition-transform">View Details <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+</div>
+</div>
+<!-- Program Card 2 -->
+<div class="bg-surface-container rounded-xl p-md shadow-sm hover:shadow-md transition-shadow group flex flex-col gap-md relative overflow-hidden cursor-pointer">
+<div class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Ehsaas Taleem</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-xs">Educational stipends distributed to primary and secondary school children.</p>
+</div>
+<div class="flex items-center gap-xs mt-auto">
+<span class="bg-secondary-container text-on-secondary-container px-xs py-base rounded-md font-label-sm text-label-sm">Active</span>
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-base ml-auto group-hover:translate-x-1 transition-transform">View Details <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+</div>
+</div>
+<!-- Program Card 3 (Wide) -->
+<div class="bg-tertiary-container text-on-tertiary-container sm:col-span-2 rounded-xl p-md shadow-sm hover:shadow-md transition-shadow group flex flex-col sm:flex-row gap-md items-start sm:items-center relative overflow-hidden cursor-pointer">
+<div class="w-12 h-12 bg-on-tertiary-container text-tertiary-container rounded-full flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">home_work</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-tertiary-container">Bait-ul-Mal Grants</h3>
+<p class="font-body-md text-body-md text-on-tertiary-container/80 mt-xs">Emergency financial assistance for housing, medical operations, and rehabilitation.</p>
+</div>
+<button class="bg-on-tertiary-container text-tertiary-container px-md py-sm rounded-full font-label-md text-label-md shadow-sm whitespace-nowrap">
+                        Review Applications
+                    </button>
+</div>
+</div>
+<!-- Visual Data / Chart Placeholder -->
+<div class="bg-surface-container rounded-xl p-md shadow-sm mt-sm flex flex-col gap-md">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Distribution by Sector</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">more_vert</span>
+</div>
+<div class="relative w-full h-32 flex items-end gap-sm mt-sm">
+<!-- Inline SVG Bar Chart Simulation -->
+<div class="w-full h-full flex items-end gap-xs">
+<div class="w-1/4 bg-primary/20 hover:bg-primary/30 rounded-t-lg transition-all h-[40%] relative group">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">15%</span>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant">Housing</span>
+</div>
+<div class="w-1/4 bg-primary/40 hover:bg-primary/50 rounded-t-lg transition-all h-[65%] relative group">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">30%</span>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant">Education</span>
+</div>
+<div class="w-1/4 bg-primary hover:bg-primary-container rounded-t-lg transition-all h-[95%] relative group">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">45%</span>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant">Healthcare</span>
+</div>
+<div class="w-1/4 bg-primary/20 hover:bg-primary/30 rounded-t-lg transition-all h-[25%] relative group">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">10%</span>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-on-surface-variant">Rations</span>
+</div>
+</div>
+</div>
+<div class="h-6"></div> <!-- Spacer for labels -->
+</div>
+</div>
+</div>
+</div>
+<script src="script.js"></script>
+</section>
+
+      <!-- PAGE 8: NEWS & ALERTS -->
+      <section id="news-alerts" class="page-view">
+<div class="flex flex-col w-full h-full relative overflow-hidden bg-background">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-error/5 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
+<div class="flex flex-col w-full max-w-[max-width] mx-margin-desktop px-sm lg:px-md xl:px-lg py-lg gap-lg relative z-10">
+<!-- Header Area -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-sm">
+<div class="flex flex-col gap-xs max-w-2xl">
+<div class="flex items-center gap-xs text-primary font-label-md">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+<span class="uppercase tracking-widest">Information Center</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-background">News & Alerts</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Stay informed with verified updates, emergency advisories, and official government announcements.</p>
+</div>
+<div class="flex items-center gap-sm self-start md:self-end">
+<button class="flex items-center justify-center gap-xs px-md py-sm bg-surface-container rounded-full text-on-surface hover:bg-surface-container-high transition-colors font-label-md">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                    Filter
+                </button>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full md:w-64 pl-xl pr-sm py-sm bg-surface-container rounded-full text-on-surface font-body-md placeholder:text-on-surface-variant/70 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-shadow" placeholder="Search news..." type="text"/>
+</div>
+</div>
+</header>
+<!-- Emergency Advisory Banner (Only show if active) -->
+<div class="w-full bg-error-container text-on-error-container rounded-xl p-md sm:p-lg flex flex-col sm:flex-row items-start sm:items-center gap-md shadow-sm relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-32 h-32 bg-error/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3 group-hover:scale-150 transition-transform duration-700"></div>
+<div class="flex-shrink-0 w-12 h-12 bg-error/20 rounded-full flex items-center justify-center relative">
+<div class="absolute inset-0 bg-error/30 rounded-full animate-ping opacity-75"></div>
+<span class="material-symbols-outlined text-error text-[28px] relative z-10" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1 flex flex-col gap-base relative z-10">
+<div class="flex items-center gap-sm">
+<span class="font-label-sm uppercase tracking-wider text-error font-bold">Severe Weather Alert</span>
+<span class="text-[12px] opacity-80 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span> Issued 2 hours ago</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Heavy Rainfall Expected in Coastal Areas</h3>
+<p class="font-body-md text-body-md opacity-90 max-w-3xl">Citizens in coastal districts are advised to take precautionary measures. Stay indoors and avoid unnecessary travel over the next 48 hours.</p>
+</div>
+<button class="flex-shrink-0 mt-sm sm:mt-0 px-md py-sm bg-error text-on-error font-label-md rounded-lg hover:bg-error/90 transition-colors shadow-sm relative z-10 flex items-center gap-xs">
+                Read Guidelines
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg mt-sm">
+<!-- Main Content Area -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Featured News Carousel -->
+<section class="flex flex-col gap-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-xs">
+<span class="w-2 h-8 bg-primary rounded-full block"></span>
+                            Featured Updates
+                        </h2>
+<div class="flex gap-xs">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="relative w-full h-[400px] rounded-2xl overflow-hidden group shadow-md cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWDxoM1agvy2RB9Slz2rEHkcsILx327435QqZy1P2DRHVvM2FyHKD_2ZwD62XWcG0DxtLw1dJEiJzbLun4OImBNxLBNc2Mb7F7r129ogPF0mDqpS6hCX3EGroydwzsHt-KcqnCYMjIcivTHL8KudLRvJZ0xowi3y4M356g6zTp_kM_u2Rs4gdqfKNOBRNNozSJ8zXFUmZL34QeylkZ_SSz4fiTqDXz0ggI9Xcb58NMOpmFHJJVqvuQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 p-lg flex flex-col gap-sm text-white">
+<div class="flex gap-sm">
+<span class="px-xs py-base bg-primary text-on-primary font-label-sm uppercase tracking-wider rounded">Policy</span>
+<span class="text-white/80 font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 24, 2023
+                                </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg leading-tight w-full md:w-4/5 text-shadow-sm group-hover:text-primary-fixed transition-colors">Launch of New Digital Identity Framework Nationwide</h3>
+<p class="font-body-md text-body-md text-white/90 line-clamp-2 w-full md:w-3/4">The Prime Minister has inaugurated the comprehensive digital identity framework aimed at streamlining citizen services and reducing bureaucratic hurdles across all provincial departments.</p>
+</div>
+</div>
+</section>
+<!-- Latest Announcements Feed -->
+<section class="flex flex-col gap-md mt-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Latest Announcements</h2>
+<div class="flex flex-col gap-sm">
+<!-- News Item 1 -->
+<article class="group bg-surface-container-lowest rounded-xl p-sm sm:p-md shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-md cursor-pointer border-l-4 border-transparent hover:border-primary">
+<div class="w-full sm:w-48 h-32 flex-shrink-0 rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Digital literacy program" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNxLTj6TQbo3A0jgBm3pHVkmoZIfcfmGO9oHrKJedwd_-jJh_bFybkZT8SHOShuWqebbg6A3PmQbKEy-3abqhyDhtEVs01sh4h9OZI1rj0UvgDRuHjlBJk_o_-o0EbF-es-Q4Kk5xnuyDvv-66_tOtMwqEkz3303dl6yOcjJKlogDgHZtHQ17tB1MHzR0YzALq4qbNSpzv6mHbypt4ZhrNBtlZQCUSm3vTeWNDjfO93nmT9FCAKdFP"/>
+<div class="absolute top-xs left-xs px-2 py-1 bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm rounded shadow-sm text-[10px] uppercase font-bold">Education</div>
+</div>
+<div class="flex flex-col justify-between flex-1 gap-xs py-xs">
+<div class="flex flex-col gap-base">
+<div class="text-on-surface-variant font-label-sm flex items-center gap-xs opacity-70">
+<span>2 hours ago</span> • <span>Ministry of Education</span>
+</div>
+<h3 class="font-headline-sm text-[20px] font-semibold text-on-surface group-hover:text-primary transition-colors leading-tight">Digital Literacy Program Expanded to 500 Public Schools</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-xs">Phase 2 of the National Digital Literacy initiative kicks off next month, targeting secondary education institutions in rural districts.</p>
+</div>
+<div class="flex items-center text-primary font-label-md mt-sm group-hover:translate-x-1 transition-transform w-fit">
+                                    Read Full Story <span class="material-symbols-outlined text-[18px] ml-xs">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- News Item 2 -->
+<article class="group bg-surface-container-lowest rounded-xl p-sm sm:p-md shadow-sm hover:shadow-md transition-all duration-300 flex flex-col sm:flex-row gap-md cursor-pointer border-l-4 border-transparent hover:border-primary">
+<div class="w-full sm:w-48 h-32 flex-shrink-0 rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Regional health center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASehJvyyaT1DN01aWBQE0xMkx_M0D156VVQd6t2_bQSaQLt_YkU4wZ69muRbKADIBq95yHIhI67R_NJbS8kOEPUnQmEkpeCMk6E7bvc0kkdKsdxYKJMvRjUJwUMgd3I55atDNsbViGVF7hNcfcHxvwJOnzK_ZpAh0JRtwPvsnVgtIq7Omtqy2HTwfDGsOlosbNTeH4JlbCEwcAKcZ-WZ61cnx34HCn0o_tztI7zHKLYnIoLMXsaWpw"/>
+<div class="absolute top-xs left-xs px-2 py-1 bg-surface-container-lowest/90 backdrop-blur text-primary font-label-sm rounded shadow-sm text-[10px] uppercase font-bold">Health</div>
+</div>
+<div class="flex flex-col justify-between flex-1 gap-xs py-xs">
+<div class="flex flex-col gap-base">
+<div class="text-on-surface-variant font-label-sm flex items-center gap-xs opacity-70">
+<span>5 hours ago</span> • <span>Ministry of Health</span>
+</div>
+<h3 class="font-headline-sm text-[20px] font-semibold text-on-surface group-hover:text-primary transition-colors leading-tight">Upgradation of Regional Health Centers Completed</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-xs">New diagnostic equipment and emergency response units have been successfully installed across 20 regional health facilities.</p>
+</div>
+<div class="flex items-center text-primary font-label-md mt-sm group-hover:translate-x-1 transition-transform w-fit">
+                                    Read Full Story <span class="material-symbols-outlined text-[18px] ml-xs">arrow_forward</span>
+</div>
+</div>
+</article>
+<!-- News Item 3 (No Image Variant) -->
+<article class="group bg-surface-container-low rounded-xl p-sm sm:p-md shadow-sm hover:shadow-md transition-all duration-300 flex flex-col gap-xs cursor-pointer border-l-4 border-primary/40 hover:border-primary relative overflow-hidden">
+<div class="absolute right-0 top-0 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[120px] -mt-4 -mr-4" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div class="flex flex-col gap-base relative z-10">
+<div class="flex items-center gap-sm">
+<span class="px-xs py-base bg-surface-container-highest text-on-surface font-label-sm rounded text-[10px] uppercase font-bold">Press Release</span>
+<div class="text-on-surface-variant font-label-sm opacity-70">
+<span>Yesterday</span> • <span>Finance Division</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-[20px] font-semibold text-on-surface group-hover:text-primary transition-colors leading-tight mt-xs w-full md:w-5/6">Tax Deadline Extended for Small and Medium Enterprises</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mt-xs">To facilitate business owners undergoing system transitions, the filing deadline has been pushed back by 15 days.</p>
+</div>
+</article>
+</div>
+<button class="w-full py-md border border-outline-variant/50 border-dashed rounded-xl text-primary font-label-md hover:bg-primary/5 transition-colors flex items-center justify-center gap-sm mt-sm">
+                        Load More Updates
+                        <span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</section>
+</div>
+<!-- Sidebar -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<!-- Fact-Checking Module (Bespoke layout) -->
+<section class="bg-surface-container-high rounded-2xl p-md shadow-sm relative overflow-hidden">
+<!-- Subtle background texture -->
+<div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" style="background-image: radial-gradient(#004b24 1px, transparent 1px); background-size: 16px 16px;"></div>
+<div class="relative z-10 flex flex-col gap-md">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-sm">
+<h2 class="font-headline-sm text-[20px] font-bold text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                Fact Check Desk
+                            </h2>
+<span class="px-xs py-base bg-primary-container text-on-primary-container text-[10px] font-bold uppercase rounded-full shadow-sm">Official</span>
+</div>
+<p class="font-body-sm text-[14px] text-on-surface-variant leading-relaxed">We monitor social media to debunk misinformation. Rely only on verified government sources.</p>
+<div class="flex flex-col gap-sm">
+<!-- Fact Check Item 1 -->
+<div class="bg-surface rounded-xl p-sm shadow-sm flex flex-col gap-sm">
+<div class="flex items-start gap-sm">
+<div class="w-8 h-8 rounded-full bg-error/10 flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-error text-[18px]">cancel</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface line-clamp-2 leading-snug">Claim: "Government suspending passport services indefinitely starting next week."</p>
+</div>
+</div>
+<div class="bg-primary/5 rounded-lg p-sm border-l-2 border-primary">
+<div class="flex items-center gap-xs text-primary font-label-sm mb-1 uppercase tracking-wide text-[10px]">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Fact
+                                    </div>
+<p class="font-body-sm text-[13px] text-on-surface-variant">False. Services remain operational. A brief maintenance window is scheduled for Sunday night only.</p>
+</div>
+</div>
+<!-- Fact Check Item 2 -->
+<div class="bg-surface rounded-xl p-sm shadow-sm flex flex-col gap-sm">
+<div class="flex items-start gap-sm">
+<div class="w-8 h-8 rounded-full bg-error/10 flex items-center justify-center flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-error text-[18px]">cancel</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface line-clamp-2 leading-snug">Claim: "New tax on cash withdrawals above Rs 10,000 implemented today."</p>
+</div>
+</div>
+<div class="bg-primary/5 rounded-lg p-sm border-l-2 border-primary">
+<div class="flex items-center gap-xs text-primary font-label-sm mb-1 uppercase tracking-wide text-[10px]">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Fact
+                                    </div>
+<p class="font-body-sm text-[13px] text-on-surface-variant">Incorrect. No such notification has been issued by the FBR or Ministry of Finance.</p>
+</div>
+</div>
+</div>
+<button class="mt-xs w-full py-2 text-center text-primary font-label-md hover:underline decoration-2 underline-offset-4">View All Fact Checks</button>
+</div>
+</section>
+<!-- Subscription/Alert Setup Box -->
+<section class="bg-primary text-on-primary rounded-2xl p-lg shadow-md relative overflow-hidden group">
+<div class="absolute right-0 bottom-0 opacity-10 transform translate-x-1/4 translate-y-1/4 group-hover:scale-110 transition-transform duration-700 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">mark_email_unread</span>
+</div>
+<div class="relative z-10 flex flex-col gap-md">
+<h3 class="font-headline-md text-headline-md">Get SMS Alerts</h3>
+<p class="font-body-md text-body-md text-on-primary/90">Never miss a critical update. Subscribe to receive emergency alerts and major policy news directly to your registered mobile number.</p>
+<div class="mt-sm flex flex-col gap-sm">
+<div class="flex items-center gap-sm bg-black/20 p-sm rounded-xl">
+<span class="material-symbols-outlined text-primary-fixed">smartphone</span>
+<span class="font-body-md opacity-90">+92 3** ****123</span>
+<span class="ml-auto text-[12px] bg-primary-fixed/20 text-primary-fixed px-2 py-1 rounded">Registered</span>
+</div>
+<button class="w-full py-sm bg-on-primary text-primary font-label-md rounded-xl hover:bg-surface transition-colors shadow-sm mt-xs">
+                                Manage Alert Preferences
+                            </button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+    </main>
+  </div>
+
+  <!-- SINGLE-PAGE APPLICATION LOGIC & INTERACTION HANDLERS -->
+  <script src="script.js"></script>
+</body>
+            </html>
